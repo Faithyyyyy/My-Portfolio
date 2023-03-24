@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Recoleta";
+  src: url(Recoleta-Bold.eot);
+  src: local("Recoleta Bold"), local("Recoleta-Bold"),
+    url("./fonts/Recoleta-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Recoleta";
+  src: url(Recoleta-SemiBold.eot);
+  src: local("Recoleta SemiBold"), local("Recoleta-SemiBold"),
+    url("./fonts/Recoleta-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+h1 {
+  line-height: 100rem;
+}
+.navlink::before {
+  content: "";
+  height: 3px;
+  width: 0%;
+  background-color: #fc2647;
+  display: block;
+  transition: 0.5s ease-in-out;
+}
+.navlink:hover::before {
+  content: "";
+  height: 3px;
+  border-radius: 5px;
+  width: 50%;
+  background-color: #fc2647;
+  display: block;
+}
+.cta:hover {
+  background: linear-gradient(to right, #a82319, #2e3478);
+}
+.toggleBg {
+  background-color: hsla(0, 0%, 100%, 0.9);
+}
