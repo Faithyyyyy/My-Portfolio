@@ -6,6 +6,7 @@ import Hero from "./Components/HeroSection";
 import Projects from "./Components/Projects";
 import AboutMe from "./Components/AboutMe";
 import Tech from "./Components/Tecnologies";
+import Footer from "./Components/Footer";
 function App() {
   return (
     <div className="font-monsterat h-[1000px] ">
@@ -14,6 +15,7 @@ function App() {
       <Projects />
       <AboutMe />
       <Tech />
+      <Footer />
     </div>
   );
 }
