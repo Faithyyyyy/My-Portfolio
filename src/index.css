@@ -43,7 +43,7 @@ h1 {
 .toggleBg {
   background-color: hsla(0, 0%, 100%, 0.9);
 }
-.grid {
+.grided {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 60px;

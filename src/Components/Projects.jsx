@@ -10,7 +10,7 @@ function Projects() {
         <p className="text-gray-500 font-openSans text-xl mb-10">
           Some projects I have worked on..
         </p>
-        <div className="grid">
+        <div className="grided">
           <div className="w-full max-w-sm lg:max-w-lg">
             <img src={luxoria} alt="" className="w-full rounded" />
             <div className="border-gray-100 border  rounded w-full py-12 pl-3">

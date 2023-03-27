@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar";
 import Hero from "./Components/HeroSection";
 import Projects from "./Components/Projects";
 import AboutMe from "./Components/AboutMe";
+import Tech from "./Components/Tecnologies";
 function App() {
   return (
     <div className="font-monsterat h-[1000px] ">
@@ -12,6 +13,7 @@ function App() {
       <Hero />
       <Projects />
       <AboutMe />
+      <Tech />
     </div>
   );
 }
