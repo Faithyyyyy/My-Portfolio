@@ -9,7 +9,7 @@ import Tech from "./Components/Tecnologies";
 import Footer from "./Components/Footer";
 function App() {
   return (
-    <div className="font-monsterat h-[1000px] ">
+    <div className="font-monsterat text-white bg-black">
       <Navbar />
       <Hero />
       <Projects />

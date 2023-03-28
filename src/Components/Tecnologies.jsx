@@ -1,4 +1,5 @@
 import react from "../assets/reactt.svg";
+import { FaReact } from "react-icons/fa";
 function Tech() {
   return (
     <>
@@ -12,43 +13,43 @@ function Tech() {
         </p>
         <div className="grid gap-4 md:grided">
           <div className="flex gap-3">
-            <img src={react} alt="" className="h-6 w-6" />
+            <FaReact />
             <span>React</span>
           </div>
           <div className="flex gap-3">
-            <img src={react} alt="" className="h-6 w-6" />
+            <FaReact />
             <span>React</span>
           </div>
           <div className="flex gap-3">
-            <img src={react} alt="" className="h-6 w-6" />
+            <FaReact />
             <span>React</span>
           </div>
           <div className="flex gap-3">
-            <img src={react} alt="" className="h-6 w-6" />
+            <FaReact />
             <span>React</span>
           </div>
           <div className="flex gap-3">
-            <img src={react} alt="" className="h-6 w-6" />
+            <FaReact />
             <span>React</span>
           </div>
           <div className="flex gap-3">
-            <img src={react} alt="" className="h-6 w-6" />
+            <FaReact />
             <span>React</span>
           </div>
           <div className="flex gap-3">
-            <img src={react} alt="" className="h-6 w-6" />
+            <FaReact />
             <span>React</span>
           </div>
           <div className="flex gap-3">
-            <img src={react} alt="" className="h-6 w-6" />
+            <FaReact />
             <span>React</span>
           </div>
           <div className="flex gap-3">
-            <img src={react} alt="" className="h-6 w-6" />
+            <FaReact />
             <span>React</span>
           </div>
           <div className="flex gap-3">
-            <img src={react} alt="" className="h-6 w-6" />
+            <FaReact />
             <span>React</span>
           </div>
         </div>

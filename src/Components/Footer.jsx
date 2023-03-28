@@ -1,11 +1,12 @@
 import github from "../assets/github.svg";
 import { AiFillLinkedin } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { IoIosCall } from "react-icons/io";
 function Footer() {
   return (
     <footer className="bg-black">
       <div className="px-5 py-16 md:pt-6  xl:pt-28 max-w-6xl mx-auto xl:px-0">
-        <h2 className="text-white font-[Recoleta] font-[900] text-2xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-1 ">
+        <h2 className="text-white font-[Recoleta] font-[900] text-2xl md:text-4xl eading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-1 ">
           Want to discuss ideas and build together?
         </h2>
         <p className="text-gray-500 font-openSans  mb-10">
@@ -16,14 +17,12 @@ function Footer() {
           Contact me
         </button>
         <div className="flex gap-5 mt-6">
-          <a href="https://github.com/emmanuelobi" className="text-white">
-            <img src={github} alt="" className="text-white h-7 w-7 " />
-          </a>
+          <AiFillGithub className="text-white w-7 h-7" />
           <AiFillLinkedin className="text-white w-7 h-7" />
         </div>
         <div class="flex mt-6 gap-2 items-center">
           <IoIosCall className="text-white h-7 w-7" />
-          <span className="text-white">407-437-8084</span>
+          <span className="text-white">090 7502 8897</span>
         </div>
       </div>
     </footer>

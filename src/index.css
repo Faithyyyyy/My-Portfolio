@@ -41,11 +41,19 @@ h1 {
   background: linear-gradient(to right, #a82319, #2e3478);
 }
 .toggleBg {
-  background-color: hsla(0, 0%, 100%, 0.9);
+  background-color: hsla(0, 0%, 4%, 0.9);
 }
 .grided {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 60px;
   grid-row-gap: 50px;
+}
+.wrapper {
+  background: linear-gradient(black, black),
+    linear-gradient(to right, #85221b, #2e3478);
+  background-origin: padding-box, border-box;
+  background-repeat: no-repeat;
+  border: 1px solid transparent;
+  padding-inline: 5px;
 }
