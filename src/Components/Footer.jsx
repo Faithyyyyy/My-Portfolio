@@ -1,5 +1,6 @@
-import github from "../assets/github.svg";
+import { Link } from "react-router-dom";
 import { AiFillLinkedin } from "react-icons/ai";
+import { AiFillTwitterCircle } from "react-icons/ai";
 import { AiFillGithub } from "react-icons/ai";
 import { IoIosCall } from "react-icons/io";
 function Footer() {
@@ -13,12 +14,22 @@ function Footer() {
           I am open to discuss ideas and professional opportunities. Reach out
           to me on my socials or send a direct Email
         </p>
-        <button className="font-[Recoleta] text-lg lg:text-xl font-semibold bg-gradient-to-r from-red-900 to-blue-900 px-8 text-white md:px-12 rounded-full after:content-['_↗'] py-4 cta">
+        <button className="font-[Recoleta] text-lg lg:text-xl font-semibold bg-gradient-to-r from-red-900 to-blue-900 px-8 text-white md:px-12 rounded-full  py-4 cta">
           Contact me
         </button>
         <div className="flex gap-5 mt-6">
-          <AiFillGithub className="text-white w-7 h-7" />
-          <AiFillLinkedin className="text-white w-7 h-7" />
+          <Link to="https://github.com/Faithyyyyy" target="_blank">
+            <AiFillGithub className="text-white w-7 h-7 cursor-pointer" />
+          </Link>
+          <Link
+            to="https://www.linkedin.com/in/faitholoninayin/"
+            target="_blank"
+          >
+            <AiFillLinkedin className="text-white w-7 h-7 cursor-pointer" />
+          </Link>
+          <Link to="https://twitter.com/faitthtoby" target="_blank">
+            <AiFillTwitterCircle className="text-white w-7 h-7 cursor-pointer" />
+          </Link>
         </div>
         <div class="flex mt-6 gap-2 items-center">
           <IoIosCall className="text-white h-7 w-7" />

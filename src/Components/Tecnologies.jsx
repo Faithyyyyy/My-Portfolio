@@ -1,5 +1,10 @@
 import react from "../assets/reactt.svg";
 import { FaReact } from "react-icons/fa";
+import { AiOutlineHtml5 } from "react-icons/ai";
+import { DiCss3 } from "react-icons/di";
+import { SiTailwindcss } from "react-icons/si";
+import { SiJavascript } from "react-icons/si";
+
 function Tech() {
   return (
     <>
@@ -11,50 +16,40 @@ function Tech() {
           I've worked with a range of technologies in the web development
           ecosystem.
         </p>
-        <div className="grid gap-4 md:grided">
-          <div className="flex gap-3">
-            <FaReact />
-            <span>React</span>
+        <div className="grid gap-6 tech-grid">
+          <div className="flex items-center gap-6 md:block">
+            <FaReact className="block text-3xl mb-2" />
+            <span className="font-bold font-monsterat sm:text-2xl block">
+              React
+            </span>
           </div>
-          <div className="flex gap-3">
-            <FaReact />
-            <span>React</span>
+          <div className="flex gap-6 md:block">
+            <AiOutlineHtml5 className="block text-3xl mb-2" />
+            <span className="font-bold font-monsterat sm:text-2xl block">
+              HTML5
+            </span>
           </div>
-          <div className="flex gap-3">
-            <FaReact />
-            <span>React</span>
+          <div className="flex gap-6 md:block">
+            <DiCss3 className="block text-3xl mb-2" />
+            <span className="font-bold font-monsterat sm:text-2xl block">
+              CSS3
+            </span>
           </div>
-          <div className="flex gap-3">
-            <FaReact />
-            <span>React</span>
+          <div className="flex gap-6 md:block">
+            <SiTailwindcss className="block text-3xl mb-2" />
+            <span className="font-bold font-monsterat sm:text-2xl block">
+              TailwindCss
+            </span>
           </div>
-          <div className="flex gap-3">
-            <FaReact />
-            <span>React</span>
-          </div>
-          <div className="flex gap-3">
-            <FaReact />
-            <span>React</span>
-          </div>
-          <div className="flex gap-3">
-            <FaReact />
-            <span>React</span>
-          </div>
-          <div className="flex gap-3">
-            <FaReact />
-            <span>React</span>
-          </div>
-          <div className="flex gap-3">
-            <FaReact />
-            <span>React</span>
-          </div>
-          <div className="flex gap-3">
-            <FaReact />
-            <span>React</span>
+          <div className="flex gap-6 md:block">
+            <SiJavascript className="block text-3xl mb-2" />
+            <span className="font-bold font-monsterat sm:text-2xl block">
+              Javascript
+            </span>
           </div>
         </div>
       </section>{" "}
-      <div className="w-full h-[1px] bg-gradient-to-r from-white to-slate-200"></div>{" "}
+      <div className="w-full h-[1px] bg-gradient-to-r from-black to-slate-600"></div>{" "}
     </>
   );
 }

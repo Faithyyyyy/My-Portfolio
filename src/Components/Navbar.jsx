@@ -61,7 +61,7 @@ function Navbar() {
         </div>
       </div>
       {/* Mobile Render */}
-      <div className="md:hidden bg-white transition-all">
+      <div className="md:hidden bg-bgBlack transition-all">
         <div className="flex justify-between px-5 py-5">
           <Link to="/">
             <div className="flex items-center gap-2">
@@ -79,28 +79,18 @@ function Navbar() {
               className={`w-full h-[3px] rounded-md block absolute transition duration-500 ${
                 navIcon ? "top-[60%]" : "top-0"
               } ${navIcon ? "-rotate-45" : ""} ${
-                navIcon
-                  ? "bg-white"
-                  : "bg-gradient-to-r from-red-900 to-blue-900"
+                navIcon ? "bg-white" : "bg-white"
               }`}
             ></span>
             <span
               className={`  h-[3px] rounded-md block absolute top-[30%] transition duration-500 ${
                 navIcon ? "w-0" : "w-[50%]"
-              } ${
-                navIcon
-                  ? "bg-white"
-                  : "bg-gradient-to-r from-red-900 to-blue-900"
-              }`}
+              } ${navIcon ? "bg-white" : "bg-white"}`}
             ></span>
             <span
               className={`w-full h-[3px] rounded-md block absolute transition duration-500 ${
                 navIcon ? "rotate-45" : ""
-              } ${
-                navIcon
-                  ? "bg-white"
-                  : "bg-gradient-to-r from-red-900 to-blue-900"
-              } top-[60%] `}
+              } ${navIcon ? "bg-white" : "bg-white"} top-[60%] `}
             ></span>
           </div>
         </div>

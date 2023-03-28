@@ -7,6 +7,9 @@ module.exports = {
         monsterat: ["Montserrat", "sans-serif"],
         openSans: ["Open Sans", "sans-serif"],
       },
+      backgroundColor: {
+        bgBlack: "hsla(0, 0%, 4%, 0.1)",
+      },
     },
   },
   plugins: [],
