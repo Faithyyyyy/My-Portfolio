@@ -2,25 +2,30 @@ import luxoria from "../assets/LuxoriaImage.png";
 import xoxo from "../assets/xoxoImage.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 function Projects() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <div id="projects">
       <section
         id="projects"
         className="px-5 py-16 xl:p-32 md:pt-6  xl:pt-28 max-w-6xl mx-auto xl:px-0"
       >
-        <h2 className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-1 ">
+        <h2
+          data-aos="fade"
+          className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-1 "
+        >
           Projects
         </h2>
         <p className="text-gray-400 font-openSans text-xl mb-10">
           Some projects I have worked on..
         </p>
         <div className="grided">
-          <Link
-            to="https://luxoriapp.netlify.app/"
-            target="_blank"
-            className="w-full max-w-sm lg:max-w-lg cursor-pointer"
-          >
+          <div className="w-full max-w-sm lg:max-w-lg ">
             <img src={luxoria} alt="" className="w-full rounded" />
             <div className="border-gray-700 border  rounded w-full py-12 px-3">
               <div className=" flex justify-between items-center mb-4">
@@ -28,12 +33,19 @@ function Projects() {
                   Luxoria
                 </p>
                 <div className="flex gap-2">
-                  <button className="font-openSans font-light  text-white ">
+                  <a
+                    href="https://github.com/Faithyyyyy/Luxoria"
+                    target="_blank"
+                    className="font-openSans font-light  text-white "
+                  >
                     Live
-                  </button>
-                  <button className="font-openSans   font-light text-white  ">
+                  </a>
+                  <a
+                    href=""
+                    className="font-openSans   font-light text-white  "
+                  >
                     Code
-                  </button>
+                  </a>
                 </div>
               </div>
               <p>
@@ -41,8 +53,8 @@ function Projects() {
                 buying
               </p>
             </div>
-          </Link>
-          <Link className="w-full max-w-sm lg:max-w-lg">
+          </div>
+          <div className="w-full max-w-sm lg:max-w-lg">
             <img
               src={xoxo}
               alt=""
@@ -54,12 +66,16 @@ function Projects() {
                   Xoxo
                 </p>
                 <div className="flex gap-2">
-                  <button className="font-openSans font-light  text-white ">
+                  <a
+                    target="_blank"
+                    href="https://github.com/Faithyyyyy/XoXo"
+                    className="font-openSans font-light  text-white "
+                  >
                     Live
-                  </button>
-                  <button className="font-openSans   font-light text-white  ">
+                  </a>
+                  <a className="font-openSans   font-light text-white  ">
                     Code
-                  </button>
+                  </a>
                 </div>
               </div>
               <p>
@@ -67,7 +83,7 @@ function Projects() {
                 make payments online.
               </p>
             </div>
-          </Link>
+          </div>
         </div>
       </section>
       <div className="w-full h-[1px] bg-gradient-to-r from-black to-slate-500"></div>

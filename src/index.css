@@ -116,7 +116,24 @@ a {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.footer-links {
-  animation: storm 0.7s ease-in-out both;
+.footer-links:hover {
+  animation: fl 0.7s ease-in-out both;
   animation-delay: 0.06s;
+}
+@keyframes fl {
+  0% {
+    transform: translate3d(0, 0, 0) translateX(0);
+  }
+  25% {
+    transform: translate3d(8px, 0, 0) translateY(0);
+  }
+  50% {
+    transform: translate3d(-7px, 0, 0) translateY(0);
+  }
+  75% {
+    transform: translate3d(6px, 0, 0) translateX(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateX(0);
+  }
 }
