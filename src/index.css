@@ -64,3 +64,10 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   }
 }
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
