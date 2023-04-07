@@ -1,9 +1,14 @@
 // import "./fonts/Recoleta-Bold.woff2";
 import "../fonts/Recoleta-Bold.woff2";
-function Hero() {
+function Hero({ navIcon }) {
+  console.log(navIcon);
   return (
     <>
-      <main className="px-5 py-32 md:pt-56  xl:pt-72 max-w-6xl mx-auto xl:px-0  ">
+      <main
+        className={`px-5 py-32 md:pt-56  xl:pt-72 max-w-6xl mx-auto xl:px-0  ${
+          navIcon ? "overflow-hidden " : ""
+        } ${navIcon ? "h-[800px]" : ""}`}
+      >
         <h1 className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl leading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-3">
           <span>Hi there 👋🏽, I'm Faith,</span>
           <span className="block">

@@ -1,12 +1,12 @@
 import logo from "../assets/my-logo.svg";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-function Navbar() {
+function Navbar({ handleNav, navIcon }) {
   const [toggle, setToggle] = useState(false);
   const [closeNavbar, setcloseNavbar] = useState(false);
-  const [navIcon, setNavIcon] = useState(false);
+  // const [navIcon, setNavIcon] = useState(false);
 
-  const closeNav = () => {
+  const closeNav = ({ handleNav }) => {
     closeNavbar(true);
   };
   const changeBg = () => {
@@ -17,9 +17,9 @@ function Navbar() {
     }
   };
   window.addEventListener("scroll", changeBg);
-  const handleNav = () => {
-    setNavIcon(!navIcon);
-  };
+  // const handleNav = () => {
+  //   setNavIcon(!navIcon);
+  // };
   return (
     <>
       <div
@@ -61,7 +61,7 @@ function Navbar() {
         </div>
       </div>
       {/* Mobile Render */}
-      <div className="md:hidden bg-bgBlack transition-all">
+      <div className={` md:hidden bg-bgBlack transition-all`}>
         <div className="flex justify-between px-5 py-5">
           <Link to="/">
             <div className="flex items-center gap-2">
@@ -73,7 +73,7 @@ function Navbar() {
           </Link>
           <div
             className={`w-6  h-7  relative ${navIcon ? "" : "top-2"} z-50 `}
-            onClick={handleNav}
+            onClick={() => handleNav()}
           >
             <span
               className={`w-full h-[3px] rounded-md block absolute transition duration-500 ${
@@ -95,7 +95,7 @@ function Navbar() {
           </div>
         </div>
         <div
-          className={`bg-black h-[250px] flex flex-col gap-12 p-10 text-white z-10 absolute top-0 w-full ${
+          className={`bg-black h-screen flex flex-col gap-12 p-10 text-white z-10 absolute top-0 w-full ${
             navIcon ? "block" : "hidden"
           } navbar`}
         >
