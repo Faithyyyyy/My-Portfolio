@@ -38,13 +38,14 @@ function Projects() {
                     target="_blank"
                     className="font-openSans font-light  text-white "
                   >
-                    Live
+                    Code
                   </a>
                   <a
-                    href=""
+                    href="https://luxoriapp.netlify.app/"
+                    target="_blank"
                     className="font-openSans   font-light text-white  "
                   >
-                    Code
+                    Live
                   </a>
                 </div>
               </div>
@@ -71,10 +72,13 @@ function Projects() {
                     href="https://github.com/Faithyyyyy/XoXo"
                     className="font-openSans font-light  text-white "
                   >
-                    Live
-                  </a>
-                  <a className="font-openSans   font-light text-white  ">
                     Code
+                  </a>
+                  <a
+                    href="https://xoxoapp.netlify.app/"
+                    className="font-openSans   font-light text-white  "
+                  >
+                    Live
                   </a>
                 </div>
               </div>

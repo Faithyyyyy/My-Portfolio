@@ -17,7 +17,7 @@ function AboutMe() {
         >
           About Me
         </h2>
-        <p className="sm:text-lg" data-aos="fade-right">
+        <p className="sm:text-lg" data-aos="fade">
           <span className="block font-semibold text-xl">
             Hey there! I'm Faith,
           </span>{" "}

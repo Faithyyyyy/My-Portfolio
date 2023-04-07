@@ -5,8 +5,7 @@ function Hero({ navIcon }) {
   const text1 = `Hi there 👋🏽, I'm Faith a Frontend web Developer & Technical Writer`;
   const words = text1.split(" ");
   console.log(words);
-  const mailtoHref =
-    "mailto:faithfortune6@gmail.com?subject=SendMail&body=Description";
+  const mailtoHref = "mailto:faithfortune6@gmail.com";
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({

@@ -14,14 +14,14 @@ import { useEffect } from "react";
 
 function Tech() {
   useEffect(() => {
-    AOS.init({ duration: 3000 });
+    AOS.init({ duration: 1000 });
   }, []);
   return (
     <div id="tech">
       <section className="px-5 py-16 md:pt-6  xl:pt-28 max-w-6xl mx-auto xl:px-0">
         <h2
           className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-1 "
-          data-aos="fade-down"
+          data-aos="fade"
         >
           Tech Stack
         </h2>
