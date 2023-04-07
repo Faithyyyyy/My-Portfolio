@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 function AboutMe() {
   useEffect(() => {
-    AOS.init({ duration: 2000 });
+    AOS.init({ duration: 1000 });
   }, []);
   const mailtoHref =
     "mailto:faithfortune6@gmail.com?subject=SendMail&body=Description";

@@ -19,16 +19,16 @@ function Footer() {
         </button>
         <div className="flex gap-5 mt-6">
           <Link to="https://github.com/Faithyyyyy" target="_blank">
-            <AiFillGithub className="text-white cursor-pointer md:text-4xl footer-links" />
+            <AiFillGithub className="text-white cursor-pointer text-2xl md:text-3xl footer-links" />
           </Link>
           <Link
             to="https://www.linkedin.com/in/faitholoninayin/"
             target="_blank"
           >
-            <AiFillLinkedin className="text-white  md:text-4xl cursor-pointer footer-links" />
+            <AiFillLinkedin className="text-white text-2xl md:text-3xl cursor-pointer footer-links" />
           </Link>
           <Link to="https://twitter.com/faitthtoby" target="_blank">
-            <AiFillTwitterCircle className="text-white md:text-4xl cursor-pointer footer-links" />
+            <AiFillTwitterCircle className="text-white text-2xl md:text-3xl cursor-pointer footer-links" />
           </Link>
         </div>
         <div class="flex mt-6 gap-2 items-center">
