@@ -1,6 +1,7 @@
 import logo from "../assets/my-logo.svg";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
 function Navbar({ handleNav, navIcon }) {
   const [toggle, setToggle] = useState(false);
   const [closeNavbar, setcloseNavbar] = useState(false);
@@ -44,12 +45,14 @@ function Navbar({ handleNav, navIcon }) {
               >
                 About Me
               </NavLink>
-              <NavLink
-                to="houses"
-                className="navlink overflow-hidden font- text-gray-500 hover:text-[#d87093]"
-              >
-                My Works
-              </NavLink>
+              <Link to="projects" smooth={true} duration={500}>
+                <NavLink
+                  to="houses"
+                  className="navlink overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+                >
+                  My Works
+                </NavLink>
+              </Link>
               <NavLink
                 to="houses"
                 className=" navlink overflow-hidden font- text-gray-500 hover:text-[#d87093]"
