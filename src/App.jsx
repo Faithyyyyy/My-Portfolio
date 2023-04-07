@@ -15,7 +15,7 @@ function App() {
   return (
     <div
       className={`font-monsterat text-white bg-black ${
-        navIcon ? "overflow-hidden h-[800px]" : ""
+        navIcon ? "overflow-hidden h-[500px]" : ""
       }`}
     >
       <Navbar handleNav={handleNav} navIcon={navIcon} />
