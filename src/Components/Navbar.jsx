@@ -101,7 +101,7 @@ function Navbar({ handleNav, navIcon }) {
             ></span>
           </div> */}
         </div>
-        <div className="flex items-center justify-center gap-10">
+        <div className="flex items-center px-5  gap-5">
           <Links
             to="#projects"
             className="Link overflow-hidden font- text-gray-500 hover:text-[#d87093]"

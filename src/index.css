@@ -39,6 +39,45 @@ h1 {
 }
 .cta:hover {
   background: linear-gradient(to right, #a82319, #2e3478);
+  animation: rotate 0.7s ease-in-out both;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(6deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-6deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(4deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+.cta:hover span {
+  animation: storm 0.7s ease-in-out both;
+  animation-delay: 0.06s;
+}
+@keyframes storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(8px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-7px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(6px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
 }
 .toggleBg {
   background-color: hsla(0, 0%, 4%, 0.9);

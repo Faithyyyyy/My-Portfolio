@@ -1,4 +1,6 @@
 function AboutMe() {
+  const mailtoHref =
+    "mailto:faithfortune6@gmail.com?subject=SendMail&body=Description";
   return (
     <div id="aboutus">
       <section className="px-5 py-16 md:pt-6  xl:pt-28 max-w-6xl mx-auto xl:px-0">
@@ -25,7 +27,7 @@ function AboutMe() {
           let's chat!
         </p>
         <button className="font-[Recoleta] text-lg mt-10 lg:text-xl font-semibold bg-gradient-to-r from-red-900 to-blue-900 px-8 text-white md:px-12 rounded-full  py-4 cta">
-          Contact Me
+          <a href={mailtoHref}>Contact Me</a>
         </button>
       </section>
       <div className="w-full h-[1px] bg-gradient-to-r from-black to-slate-600"></div>
