@@ -2,6 +2,8 @@ import logo from "../assets/my-logo.svg";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
+import { HashLink as Links } from "react-router-hash-link";
+
 function Navbar({ handleNav, navIcon }) {
   const [toggle, setToggle] = useState(false);
   const [closeNavbar, setcloseNavbar] = useState(false);
@@ -30,35 +32,36 @@ function Navbar({ handleNav, navIcon }) {
       >
         <div className={`   max-w-6xl mx-auto `}>
           <nav className="flex justify-between  items-center">
-            <Link to="/">
+            <Links to="#hero">
               <div className="flex items-center gap-2">
                 <img src={logo} alt="logo" className="w-5 h-5 " />
                 <h2 className="font-manrope font-black text-xl lg:text-2xl">
                   Faith.
                 </h2>
               </div>
-            </Link>
+            </Links>
             <div className="flex items-center justify-center gap-10">
-              <NavLink
-                to="/"
+              <Links
+                to="#projects"
                 className="navlink overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+                smooth
+              >
+                My Works
+              </Links>
+              <Links
+                to="#aboutus"
+                className="navlink overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+                smooth
               >
                 About Me
-              </NavLink>
-              <Link to="projects" smooth={true} duration={500}>
-                <NavLink
-                  to="houses"
-                  className="navlink overflow-hidden font- text-gray-500 hover:text-[#d87093]"
-                >
-                  My Works
-                </NavLink>
-              </Link>
-              <NavLink
-                to="houses"
+              </Links>
+              <Links
+                to="#tech"
                 className=" navlink overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+                smooth
               >
                 Technologies
-              </NavLink>
+              </Links>
             </div>
           </nav>
         </div>

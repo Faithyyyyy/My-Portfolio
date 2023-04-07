@@ -1,6 +1,6 @@
 function AboutMe() {
   return (
-    <>
+    <div id="aboutus">
       <section className="px-5 py-16 md:pt-6  xl:pt-28 max-w-6xl mx-auto xl:px-0">
         <h2 className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-3 ">
           About Me
@@ -29,7 +29,7 @@ function AboutMe() {
         </button>
       </section>
       <div className="w-full h-[1px] bg-gradient-to-r from-black to-slate-600"></div>
-    </>
+    </div>
   );
 }
 

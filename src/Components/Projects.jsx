@@ -1,10 +1,14 @@
 import luxoria from "../assets/LuxoriaImage.png";
 import xoxo from "../assets/xoxoImage.png";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 function Projects() {
   return (
-    <>
-      <section className="px-5 py-16 xl:p-32 md:pt-6  xl:pt-28 max-w-6xl mx-auto xl:px-0">
+    <div id="projects">
+      <section
+        id="projects"
+        className="px-5 py-16 xl:p-32 md:pt-6  xl:pt-28 max-w-6xl mx-auto xl:px-0"
+      >
         <h2 className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-1 ">
           Projects
         </h2>
@@ -67,7 +71,7 @@ function Projects() {
         </div>
       </section>
       <div className="w-full h-[1px] bg-gradient-to-r from-black to-slate-500"></div>
-    </>
+    </div>
   );
 }
 

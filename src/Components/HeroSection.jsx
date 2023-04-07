@@ -39,6 +39,7 @@ function Hero({ navIcon }) {
         className={`px-5 py-32 md:pt-56  xl:pt-72 max-w-6xl mx-auto xl:px-0  ${
           navIcon ? "overflow-hidden " : ""
         } ${navIcon ? "h-[800px]" : ""}`}
+        id="her0"
       >
         <motion.div
           variants={container}
