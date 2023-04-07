@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import "../fonts/Recoleta-Bold.woff2";
 function Hero({ navIcon }) {
   console.log(navIcon);
-  const text1 = ` Hi there 👋🏽, i'm Faith a Frontend web Developer & Technical Writer`;
+  const text1 = ` Hi there 👋🏽, I'm Faith a Frontend web Developer & Technical Writer`;
   const words = text1.split(" ");
   console.log(words);
   // const text2 = `a Frontend web Developer & Technical Writer`;
@@ -45,7 +45,8 @@ function Hero({ navIcon }) {
             return (
               <motion.h1
                 variants={child}
-                className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl   max-w-[300px] mb-3 capitalize inline-block text-white mr-4"
+                className="font-[Recoleta] font-[900] text-2xl sm:text-3xl md:text-4xl lg:text-6xl md:mb-3  inline-block text-white mr-3
+                lg:mr-4"
                 key={index}
               >
                 {word}
