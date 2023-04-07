@@ -45,7 +45,7 @@ function Hero({ navIcon }) {
             return (
               <motion.h1
                 variants={child}
-                className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl leading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-3 capitalize inline-block text-white mr-4"
+                className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl   max-w-[300px] mb-3 capitalize inline-block text-white mr-4"
                 key={index}
               >
                 {word}
