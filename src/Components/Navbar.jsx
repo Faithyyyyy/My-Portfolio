@@ -1,7 +1,7 @@
 import logo from "../assets/my-logo.svg";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
+// import { Link } from "react-scroll";
 import { HashLink as Links } from "react-router-hash-link";
 
 function Navbar({ handleNav, navIcon }) {
@@ -9,7 +9,7 @@ function Navbar({ handleNav, navIcon }) {
   const [closeNavbar, setcloseNavbar] = useState(false);
   // const [navIcon, setNavIcon] = useState(false);
 
-  const closeNav = ({ handleNav }) => {
+  const closeNav = () => {
     closeNavbar(true);
   };
   const changeBg = () => {
@@ -43,21 +43,21 @@ function Navbar({ handleNav, navIcon }) {
             <div className="flex items-center justify-center gap-10">
               <Links
                 to="#projects"
-                className="navlink overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+                className="Link overflow-hidden font- text-gray-500 hover:text-[#d87093]"
                 smooth
               >
                 My Works
               </Links>
               <Links
                 to="#aboutus"
-                className="navlink overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+                className="Link overflow-hidden font- text-gray-500 hover:text-[#d87093]"
                 smooth
               >
                 About Me
               </Links>
               <Links
                 to="#tech"
-                className=" navlink overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+                className=" Link overflow-hidden font- text-gray-500 hover:text-[#d87093]"
                 smooth
               >
                 Technologies
@@ -77,7 +77,8 @@ function Navbar({ handleNav, navIcon }) {
               </h2>
             </div>
           </Link>
-          <div
+
+          {/* <div
             className={`w-6  h-7  relative ${navIcon ? "" : "top-2"} z-50 `}
             onClick={() => handleNav()}
           >
@@ -98,22 +99,30 @@ function Navbar({ handleNav, navIcon }) {
                 navIcon ? "rotate-45" : ""
               } ${navIcon ? "bg-white" : "bg-white"} top-[60%] `}
             ></span>
-          </div>
+          </div> */}
         </div>
-        <div
-          className={`bg-black h-screen flex flex-col gap-12 p-10 text-white z-10 absolute top-0 w-full ${
-            navIcon ? "block" : "hidden"
-          } navbar`}
-        >
-          <NavLink to="/" className="text-white" onClick={closeNav}>
-            About Me
-          </NavLink>
-          <NavLink to="houses" className="text-white" onClick={closeNav}>
+        <div className="flex items-center justify-center gap-10">
+          <Links
+            to="#projects"
+            className="Link overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+            smooth
+          >
             My Works
-          </NavLink>
-          <NavLink to="houses" className=" text-white " onClick={closeNav}>
+          </Links>
+          <Links
+            to="#aboutus"
+            className="Link overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+            smooth
+          >
+            About Me
+          </Links>
+          <Links
+            to="#tech"
+            className=" Link overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+            smooth
+          >
             Technologies
-          </NavLink>
+          </Links>
         </div>
       </div>
       {/* Mobile Render */}
