@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import "../fonts/Recoleta-Bold.woff2";
 function Hero({ navIcon }) {
   console.log(navIcon);
-  const text1 = ` Hi there 👋🏽, I'm Faith a Frontend web Developer & Technical Writer`;
+  const text1 = `Hi there 👋🏽, I'm Faith a Frontend web Developer & Technical Writer`;
   const words = text1.split(" ");
   console.log(words);
   // const text2 = `a Frontend web Developer & Technical Writer`;
@@ -40,12 +40,17 @@ function Hero({ navIcon }) {
           navIcon ? "overflow-hidden " : ""
         } ${navIcon ? "h-[800px]" : ""}`}
       >
-        <motion.div variants={container} initial="hidden" animate="visible">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-wrap gap-2"
+        >
           {words.map((word, index) => {
             return (
               <motion.h1
                 variants={child}
-                className="font-[Recoleta] font-[900] text-3xl md:text-4xl lg:text-6xl md:mb-3  inline-block text-white mr-3
+                className="font-[Recoleta] font-[900] text-3xl md:text-4xl lg:text-6xl  text-white 
                 lg:mr-4"
                 key={index}
               >
