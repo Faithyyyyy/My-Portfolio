@@ -14,7 +14,7 @@ import { useEffect } from "react";
 
 function Tech() {
   useEffect(() => {
-    AOS.init({ duration: 2000 });
+    AOS.init({ duration: 3000 });
   }, []);
   return (
     <div id="tech">
