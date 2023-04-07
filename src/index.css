@@ -100,7 +100,8 @@ h1 {
 @media screen and (min-width: 880px) {
   .tech-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    row-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 input,
@@ -109,4 +110,13 @@ button,
 select,
 a {
   -webkit-tap-highlight-color: transparent;
+}
+.span {
+  background: linear-gradient(to right, #85221b, #2e3478);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.footer-links {
+  animation: storm 0.7s ease-in-out both;
+  animation-delay: 0.06s;
 }

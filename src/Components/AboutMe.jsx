@@ -1,13 +1,23 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 function AboutMe() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const mailtoHref =
     "mailto:faithfortune6@gmail.com?subject=SendMail&body=Description";
   return (
     <div id="aboutus">
       <section className="px-5 py-16 md:pt-6  xl:pt-28 max-w-6xl mx-auto xl:px-0">
-        <h2 className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-3 ">
+        <h2
+          data-aos="fade"
+          className="font-[Recoleta] font-[900] text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.3] sm:leading-[1.3] md:leading-[1.4] xl:leading-[1.2]  max-w-4xl mb-3 "
+        >
           About Me
         </h2>
-        <p className="sm:text-lg">
+        <p className="sm:text-lg" data-aos="fade-right">
           <span className="block font-semibold text-xl">
             Hey there! I'm Faith,
           </span>{" "}

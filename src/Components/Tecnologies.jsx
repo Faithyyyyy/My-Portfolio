@@ -4,6 +4,10 @@ import { AiOutlineHtml5 } from "react-icons/ai";
 import { DiCss3 } from "react-icons/di";
 import { SiTailwindcss } from "react-icons/si";
 import { SiJavascript } from "react-icons/si";
+import { AiFillGithub } from "react-icons/ai";
+import { DiSass } from "react-icons/di";
+import { DiNodejs } from "react-icons/di";
+import { SiTypescript } from "react-icons/si";
 
 function Tech() {
   return (
@@ -18,33 +22,63 @@ function Tech() {
         </p>
         <div className="grid gap-6 tech-grid">
           <div className="flex items-center gap-6 md:block">
-            <FaReact className="block text-3xl mb-2" />
-            <span className="font-bold font-monsterat sm:text-2xl block">
+            <FaReact className="block text-3xl mb-2 hover:text-[#d87093] lg:text-6xl" />
+            <span className="font-bold font-monsterat hover:text-[#d87093] sm:text-2xl block">
               React
             </span>
           </div>
           <div className="flex gap-6 md:block">
-            <AiOutlineHtml5 className="block text-3xl mb-2" />
-            <span className="font-bold font-monsterat sm:text-2xl block">
+            <AiOutlineHtml5 className="block text-3xl mb-2 hover:text-[#d87093] lg:text-6xl" />
+            <span className="font-bold font-monsterat hover:text-[#d87093] sm:text-2xl block">
               HTML5
             </span>
           </div>
           <div className="flex gap-6 md:block">
-            <DiCss3 className="block text-3xl mb-2" />
-            <span className="font-bold font-monsterat sm:text-2xl block">
+            <DiCss3 className="block text-3xl mb-2 hover:text-[#d87093] lg:text-6xl" />
+            <span className="font-bold font-monsterat hover:text-[#d87093] sm:text-2xl block">
               CSS3
             </span>
           </div>
           <div className="flex gap-6 md:block">
-            <SiTailwindcss className="block text-3xl mb-2" />
-            <span className="font-bold font-monsterat sm:text-2xl block">
+            <SiTailwindcss className="block text-3xl mb-2 hover:text-[#d87093] lg:text-6xl" />
+            <span className="font-bold font-monsterat hover:text-[#d87093] sm:text-2xl block">
               TailwindCss
             </span>
           </div>
           <div className="flex gap-6 md:block">
-            <SiJavascript className="block text-3xl mb-2" />
-            <span className="font-bold font-monsterat sm:text-2xl block">
+            <SiJavascript className="block text-3xl mb-2 hover:text-[#d87093] lg:text-6xl" />
+            <span className="font-bold font-monsterat hover:text-[#d87093] sm:text-2xl block">
               Javascript
+            </span>
+          </div>
+          <div className="flex gap-6 md:block">
+            <AiFillGithub className="block text-3xl mb-2 hover:text-[#d87093] lg:text-6xl" />
+            <span className="font-bold font-monsterat hover:text-[#d87093] sm:text-2xl block">
+              Github
+            </span>
+          </div>
+          <div className="flex gap-6 md:block">
+            <AiFillGithub className="block text-3xl mb-2 hover:text-[#d87093] lg:text-6xl" />
+            <span className="font-bold font-monsterat hover:text-[#d87093] sm:text-2xl block">
+              Git
+            </span>
+          </div>
+          <div className="flex gap-6 md:block">
+            <DiSass className="block text-3xl mb-2 hover:text-[#d87093] lg:text-6xl" />
+            <span className="font-bold font-monsterat hover:text-[#d87093] sm:text-2xl block">
+              Sass
+            </span>
+          </div>
+          <div className="flex gap-6 md:block">
+            <DiNodejs className="block text-3xl mb-2 hover:text-[#d87093] lg:text-6xl" />
+            <span className="font-bold font-monsterat sm:text-2xl block hover:text-[#d87093]">
+              Node
+            </span>
+          </div>
+          <div className="flex gap-6 md:block">
+            <SiTypescript className="block text-3xl mb-2 hover:text-[#d87093] lg:text-6xl" />
+            <span className="font-bold font-monsterat hover:text-[#d87093] sm:text-2xl block">
+              Typescript
             </span>
           </div>
         </div>

@@ -19,7 +19,7 @@ function Footer() {
         </button>
         <div className="flex gap-5 mt-6">
           <Link to="https://github.com/Faithyyyyy" target="_blank">
-            <AiFillGithub className="text-white w-7 h-7 cursor-pointer" />
+            <AiFillGithub className="text-white w-7 h-7 cursor-pointer footer-links" />
           </Link>
           <Link
             to="https://www.linkedin.com/in/faitholoninayin/"
