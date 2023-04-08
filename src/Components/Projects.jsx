@@ -1,5 +1,6 @@
 import luxoria from "../assets/LuxoriaImage.png";
 import xoxo from "../assets/xoxoImage.png";
+import artsy from "../assets/artsy.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AOS from "aos";
@@ -83,8 +84,41 @@ function Projects() {
                 </div>
               </div>
               <p>
-                An E-com web application where you get to shop various items and
-                make payments online.
+                An E-com web application where you get to shop various clothing
+                items and make payments online.
+              </p>
+            </div>
+          </div>
+          <div className="w-full max-w-sm lg:max-w-lg">
+            <img
+              src={artsy}
+              alt=""
+              className="w-full lg:h-[290px] border-gray-100 border  rounded"
+            />
+            <div className=" border-gray-700 border rounded w-full py-12 px-3">
+              <div className=" flex justify-between items-center mb-4">
+                <p className="font-[Recoleta] text-lg lg:text-3xl text-gray-200 ">
+                  Artsy
+                </p>
+                <div className="flex gap-2">
+                  <a
+                    target="_blank"
+                    href="https://github.com/Faithyyyyy/Artsy"
+                    className="font-openSans font-light  text-white "
+                  >
+                    Code
+                  </a>
+                  <a
+                    href="https://artsyapp.netlify.app/"
+                    className="font-openSans   font-light text-white  "
+                  >
+                    Live
+                  </a>
+                </div>
+              </div>
+              <p>
+                An E-com web application where you get to shop various artistic
+                items
               </p>
             </div>
           </div>
