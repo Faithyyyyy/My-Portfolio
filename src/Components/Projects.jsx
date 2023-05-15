@@ -1,6 +1,7 @@
 import luxoria from "../assets/LuxoriaImage.png";
 import xoxo from "../assets/xoxoImage.png";
 import artsy from "../assets/artsy.png";
+import Trybudget from "../assets/TryBudget.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AOS from "aos";
@@ -26,6 +27,37 @@ function Projects() {
           Some projects I have worked on..
         </p>
         <div className="grided">
+          <div className="w-full max-w-sm lg:max-w-lg ">
+            <img src={Trybudget} alt="" className="w-full rounded" />
+            <div className="border-gray-700 border  rounded w-full py-12 px-3">
+              <div className=" flex justify-between items-center mb-4">
+                <p className="font-[Recoleta] text-lg lg:text-3xl text-gray-200 ">
+                  Luxoria
+                </p>
+                <div className="flex gap-2">
+                  <a
+                    href="https://github.com/Faithyyyyy/Trybudget"
+                    target="_blank"
+                    className="font-openSans font-light  text-white "
+                  >
+                    Code
+                  </a>
+                  <a
+                    href="https://trybudgetapp.netlify.app/"
+                    target="_blank"
+                    className="font-openSans   font-light text-white  "
+                  >
+                    Live
+                  </a>
+                </div>
+              </div>
+              <p>
+                A real time Budgetting Application where you get to keep track
+                of your money by budgetting and also comparing your budget to
+                your expenses.
+              </p>
+            </div>
+          </div>
           <div className="w-full max-w-sm lg:max-w-lg ">
             <img src={luxoria} alt="" className="w-full rounded" />
             <div className="border-gray-700 border  rounded w-full py-12 px-3">
