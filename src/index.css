@@ -2,10 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg: #080808;
+  --bg-secondary: #111111;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --accent-purple: #a78bfa;
+  --accent-blue: #93c5fd;
+  --accent-lavender: #c4b5fd;
+  --accent-periwinkle: #818cf8;
+  --text-primary: #f0eeff;
+  --text-secondary: #d4cafe;
+  --text-muted: #7c7a9a;
+  --border: rgba(167, 139, 250, 0.1);
+  --border-strong: rgba(167, 139, 250, 0.22);
+  --gradient-main: linear-gradient(
+    135deg,
+    rgba(167, 139, 250, 0.15) 0%,
+    rgba(147, 197, 253, 0.1) 50%,
+    rgba(196, 181, 253, 0.15) 100%
+  );
+  --gradient-hero: linear-gradient(
+    160deg,
+    #0d0b1a 0%,
+    #090d1f 40%,
+    #0e0b1a 80%,
+    #080e1c 100%
+  );
+  --shadow-soft: 0 4px 30px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 60px rgba(167, 139, 250, 0.2);
+}
+
 @font-face {
   font-family: "Recoleta";
   src: url(Recoleta-Bold.eot);
-  src: local("Recoleta Bold"), local("Recoleta-Bold"),
+  src:
+    local("Recoleta Bold"),
+    local("Recoleta-Bold"),
     url("./fonts/Recoleta-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
@@ -13,7 +47,9 @@
 @font-face {
   font-family: "Recoleta";
   src: url(Recoleta-SemiBold.eot);
-  src: local("Recoleta SemiBold"), local("Recoleta-SemiBold"),
+  src:
+    local("Recoleta SemiBold"),
+    local("Recoleta-SemiBold"),
     url("./fonts/Recoleta-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
@@ -89,8 +125,8 @@ h1 {
   grid-row-gap: 50px;
 }
 .wrapper {
-  background: linear-gradient(black, black),
-    linear-gradient(to right, #85221b, #2e3478);
+  background:
+    linear-gradient(black, black), linear-gradient(to right, #85221b, #2e3478);
   background-origin: padding-box, border-box;
   background-repeat: no-repeat;
   border: 1px solid transparent;
@@ -143,5 +179,14 @@ a {
   }
   100% {
     transform: translate3d(0, 0, 0) translateX(0);
+  }
+}
+.vertical-nav {
+  display: none;
+}
+
+@media (min-width: 700px) {
+  .vertical-nav {
+    display: flex;
   }
 }

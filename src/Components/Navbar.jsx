@@ -25,7 +25,7 @@ function Navbar({ handleNav, navIcon }) {
   // };
   return (
     <>
-      <div
+      {/* <div
         className={`${
           toggle ? "toggleBg" : ""
         } w-full nav h-24 hidden md:block font-poppins fixed px-6 pt-7 z-50`}
@@ -65,7 +65,7 @@ function Navbar({ handleNav, navIcon }) {
             </div>
           </nav>
         </div>
-      </div>
+      </div> */}
       {/* Mobile Render */}
       <div className={` md:hidden bg-bgBlack transition-all`}>
         <div className="flex justify-between px-5 py-5">
