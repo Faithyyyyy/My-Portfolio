@@ -38,6 +38,9 @@ import AboutMe from "./Components/AboutMe";
 import Tech from "./Components/Tecnologies";
 import Footer from "./Components/Footer";
 import CaseStudy from "./Components/pages/CaseStudy";
+import Blog from "./Components/pages/Blog";
+import BlogPost from "./Components/pages/BlogPost";
+import BlogPreview from "./Components/BlogPreview";
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import TechnicalArsenal from "./Components/TechnicalArsenal";
@@ -52,6 +55,7 @@ function Home({ navIcon, handleNav }) {
       <Navbar handleNav={handleNav} navIcon={navIcon} />
       <Hero navIcon={navIcon} />
       <Projects />
+      <BlogPreview />
       <TechnicalArsenal />
       <AboutMe />
       {/* <Tech /> */}
@@ -73,6 +77,8 @@ function App() {
         element={<Home navIcon={navIcon} handleNav={handleNav} />}
       />
       <Route path="/projects/:slug" element={<CaseStudy />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:slug" element={<BlogPost />} />
     </Routes>
   );
 }

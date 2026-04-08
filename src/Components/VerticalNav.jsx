@@ -1,5 +1,6 @@
 const navItems = [
   { label: "My Works", href: "#projects" },
+  { label: "Blog", href: "#blog" },
   { label: "About Me", href: "#aboutus" },
   { label: "Technologies", href: "#tech" },
 ];

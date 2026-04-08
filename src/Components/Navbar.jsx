@@ -114,6 +114,13 @@ function Navbar({ handleNav, navIcon }) {
             className="Link overflow-hidden font- text-gray-500 hover:text-[#d87093]"
             smooth
           >
+            Blog
+          </Links>
+          <Links
+            to="#aboutus"
+            className="Link overflow-hidden font- text-gray-500 hover:text-[#d87093]"
+            smooth
+          >
             About Me
           </Links>
           <Links
