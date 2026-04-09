@@ -324,7 +324,13 @@ export default function BlogPost() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <BlogCover post={post} style={{ borderRadius: "14px" }} />
+          {/* <BlogCover post={post} style={{ borderRadius: "14px" }} /> */}
+          {/* <img
+            src={post.thumbnail}
+            alt=""
+            style={{ borderRadius: "14px" }}
+            className="h-[200px]"
+          /> */}
         </motion.div>
       </div>
 

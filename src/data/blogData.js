@@ -1,10 +1,13 @@
 // src/data/blogData.js
 // Add, edit, or remove posts here. The rest of the blog updates automatically.
+import postThumbnail from "../assets/post 1.png";
+import postThumbnail3 from "../assets/lazy_loading.webp";
 
 export const blogPosts = [
   {
     slug: "tamper-proof-receipts-sha256",
     title: "How I Built a Tamper-Proof Receipt System Using SHA-256",
+    // thumbnail: postThumbnail,
     date: "April 09, 2026",
     tag: "Engineering",
     excerpt:
@@ -150,5 +153,163 @@ What started as a simple receipt feature turned into something deeper. Instead o
 
 It's no longer just a receipt. It's a trust system, wrapped in a product people can actually use.
     `,
+  },
+  {
+    slug: "lazy-loading-react-components",
+    title: "Lazy Loading React Components with React.lazy",
+    // thumbnail: postThumbnail3,
+    date: "February 15, 2023",
+    tag: "React",
+    excerpt:
+      "Learn how to optimize React applications by reducing bundle size and improving performance with React.lazy and code splitting.",
+    content: `
+## Introduction
+
+Large React applications are made up of many components, methods, and third-party libraries. If all of this code is shipped to the user at once, your app's performance can take a serious hit. To prevent this, we use **code splitting**, which allows us to load only what the user needs at the moment.
+
+
+## What is Code Splitting?
+
+React uses tools like **Webpack** and **Babel** to bundle your application into JavaScript files. By default, React bundles everything into one large file. As your app grows, this file gets bigger, slowing down load times.
+
+Code splitting solves this problem by creating multiple chunks of JavaScript and only loading them as needed. On the initial load, the browser only downloads the main chunk. Additional code is loaded on demand, as the user navigates through your app.
+
+For example, if your app has multiple pages:
+- The initial bundle loads the main page.
+- Clicking a different route dynamically loads only the JavaScript for that page.
+
+
+## How to Implement React Lazy Loading
+
+React provides **React.lazy** for lazy loading components. Here’s how you do it:
+
+### Step 1: Change your import to React.lazy
+
+**Traditional import:**
+\`\`\`javascript
+import Images from './Images';
+
+const App = () => (
+  <div>
+    <Images />
+  </div>
+);
+\`\`\`
+
+**Lazy load import:**
+\`\`\`javascript
+import React from 'react';
+
+const Images = React.lazy(() => import('./Images'));
+
+const App = () => (
+  <div>
+    <Images />
+  </div>
+);
+\`\`\`
+
+> **Note:** React.lazy only supports default exports. Named exports will not work.
+
+
+### Step 2: Wrap the Component in React Suspense
+
+Lazy-loaded components need a **Suspense** wrapper. This shows a fallback while the component is loading:
+
+\`\`\`javascript
+import React, { Suspense } from 'react';
+
+const Images = React.lazy(() => import('./Images'));
+
+const App = () => {
+  return (
+    <Suspense fallback={<span>Loading...</span>}>
+      <Images />
+    </Suspense>
+  );
+};
+\`\`\`
+
+
+## Lazy Loading Routes
+
+You can also lazy load **entire pages** to optimize bundle size per route:
+
+\`\`\`javascript
+import { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+const Home = lazy(() => import('./routes/Home'));
+const Cart = lazy(() => import('./routes/Cart'));
+
+const App = () => (
+  <Router>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/cart" element={<Cart />} />
+      </Routes>
+    </Suspense>
+  </Router>
+);
+\`\`\`
+
+
+## Error Handling with Error Boundaries
+
+Sometimes lazy-loaded components fail due to network issues or runtime errors. Use **Error Boundaries** to catch these errors and show a fallback UI.
+
+**Class-based Error Boundary:**
+\`\`\`javascript
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children; 
+  }
+}
+\`\`\`
+
+**Simpler approach using react-error-boundary:**
+\`\`\`bash
+npm i react-error-boundary
+import { ErrorBoundary } from 'react-error-boundary';
+import Images from './Images';
+
+function OurFallbackComponent({ error, resetErrorBoundary }) {
+  return (
+    <div>
+      <h1>An error occurred: {error.message}</h1>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <ErrorBoundary FallbackComponent={OurFallbackComponent}>
+      <Images />
+    </ErrorBoundary>
+  );
+}
+\`\`\`
+## Conclusion
+
+React.lazy and code splitting make it easy to **optimize bundle size** and **improve app performance**. Lazy-loading components and routes ensures users only download what they need, improving load times and overall experience.
+
+Start implementing lazy loading in your app today—it’s simple, powerful, and greatly enhances user experience.
+
+`,
   },
 ];

@@ -206,7 +206,7 @@ export default function Blog() {
                   <BlogCover
                     post={post}
                     style={{
-                      aspectRatio: "4/3",
+                      aspectRatio: "2/3",
                       borderRadius: "8px",
                       flexShrink: 0,
                     }}

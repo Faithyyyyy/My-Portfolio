@@ -6,7 +6,6 @@ function Hero({ navIcon }) {
   const text1 = `Hi there 👋🏽, I'm Faith a Frontend web Developer & Technical Writer`;
   const words = text1.split(" ");
   console.log(words);
-  // const mailtoHref = "mailto:faithfortune6@gmail.com";
   const container = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
@@ -50,39 +49,10 @@ function Hero({ navIcon }) {
         } ${navIcon ? "h-[800px]" : ""}`}
         id="hero"
       >
-        {/* <div
-          style={{
-            position: "absolute",
-            top: "10%",
-            right: "-5%",
-            width: "500px",
-            height: "500px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(196,181,253,0.35) 0%, transparent 70%)",
-            filter: "blur(40px)",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "5%",
-            left: "-10%",
-            width: "600px",
-            height: "600px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(147,197,253,0.3) 0%, transparent 70%)",
-            filter: "blur(50px)",
-            pointerEvents: "none",
-          }}
-        /> */}
         <div className="blob blob-right" />
         <div className="blob blob-left" />
         <VerticalNav />
         <motion.div {...fadeUp(0.1)}>
-          {/* <motion.div {...fadeUp(0.1)} style={{ marginBottom: "2.5rem" }}> */}
           <span
             style={{
               display: "inline-flex",

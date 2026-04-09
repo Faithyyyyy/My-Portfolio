@@ -1,4 +1,4 @@
-import logo from "../assets/my-logo.svg";
+// import logo from "../assets/my-logo.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 // import { Link } from "react-scroll";
@@ -69,14 +69,14 @@ function Navbar({ handleNav, navIcon }) {
       {/* Mobile Render */}
       <div className={` md:hidden bg-bgBlack transition-all`}>
         <div className="flex justify-between px-5 py-5">
-          <Link to="/">
+          {/* <Link to="/">
             <div className="flex items-center gap-2">
               <img src={logo} alt="logo" className="w-5 h-5 " />
               <h2 className="font-manrope font-black text-xl lg:text-2xl">
                 Faith.
               </h2>
             </div>
-          </Link>
+          </Link> */}
 
           {/* <div
             className={`w-6  h-7  relative ${navIcon ? "" : "top-2"} z-50 `}

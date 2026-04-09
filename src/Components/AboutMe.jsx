@@ -14,8 +14,8 @@ function AboutMe() {
       <section className="px-5 py-16 md:pt-6  xl:pt-28 max-w-6xl mx-auto xl:px-0">
         <h2
           style={{
-            fontFamily: "DM Sans, sans-serif",
-            fontFamily: "DM Sans, sans-serif",
+            // fontFamily: "DM Sans, sans-serif",
+            // fontFamily: "DM Sans, sans-serif",
             fontSize: "0.72rem",
             fontWeight: 600,
             letterSpacing: "0.2em",

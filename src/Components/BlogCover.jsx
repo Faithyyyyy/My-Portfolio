@@ -210,7 +210,7 @@ export default function BlogCover({ post, style = {} }) {
       {/* Content */}
       <div style={{ position: "relative", zIndex: 1 }}>
         {/* Tag pill */}
-        <span
+        {/* <span
           style={{
             display: "inline-block",
             fontSize: "0.65rem",
@@ -226,13 +226,13 @@ export default function BlogCover({ post, style = {} }) {
           }}
         >
           {post.tag}
-        </span>
+        </span> */}
 
         {/* Title */}
         <p
           style={{
-            fontSize: "clamp(0.85rem, 2vw, 1.1rem)",
-            fontWeight: 600,
+            fontSize: "clamp(0.85rem, 2vw, 0.2rem)",
+            fontWeight: 400,
             color: "#ffffff",
             margin: "0 0 0.35rem",
             lineHeight: 1.3,

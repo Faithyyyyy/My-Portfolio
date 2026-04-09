@@ -78,14 +78,15 @@ function BlogCard({ post, index }) {
           }}
         >
           {/* Cover thumbnail */}
-          <BlogCover
+          {/* <BlogCover
             post={post}
             style={{
               borderRadius: "16px 16px 0 0",
               border: "none",
               aspectRatio: "16/8",
             }}
-          />
+          /> */}
+          <img src={post.thumbnail} alt="" style={{ borderRadius: "14px" }} />
 
           {/* Card body */}
           <div

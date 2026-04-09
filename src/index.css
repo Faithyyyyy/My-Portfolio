@@ -190,3 +190,16 @@ a {
     display: flex;
   }
 }
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: center;
+  }
+}

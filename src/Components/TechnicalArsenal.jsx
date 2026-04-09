@@ -55,7 +55,10 @@ export default function TechnicalArsenal() {
     //  <div id="tech"></div>
     <section id="tech" ref={ref} style={{ background: "var(--bg)" }}>
       {/* <section ref={ref} style={{ padding: "5rem 0", background: "var(--bg)" }}> */}
-      <div style={{ maxWidth: "1152px", margin: "0 auto" }}>
+      <div
+        className="px-6 py-16 md:pt-6  xl:pt-28 max-w-6xl mx-auto xl:px-0 "
+        style={{ maxWidth: "1152px", margin: "0 auto" }}
+      >
         {/* <div style={{ maxWidth: "1152px", margin: "0 auto", padding: "0 2rem" }}> */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
@@ -74,7 +77,16 @@ export default function TechnicalArsenal() {
           Technical Arsenal
         </motion.p>
 
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+        <div
+          className="container"
+          // style={{
+          //   display: "flex",
+          //   flexWrap: "wrap",
+          //   gap: "0.75rem",
+          //   alignItems: "center",
+          //   justifyContent: "center",
+          // }}
+        >
           {tools.map((tool, i) => {
             const isHovered = hovered === tool.name;
             return (
