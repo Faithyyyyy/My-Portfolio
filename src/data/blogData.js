@@ -5,6 +5,160 @@ import postThumbnail3 from "../assets/lazy_loading.webp";
 
 export const blogPosts = [
   {
+    slug: "verification-tracking-system-paperless",
+    title: "How I Built the Verification Tracking System Into Paperless",
+    date: "April 13, 2026",
+    tag: "Engineering",
+    excerpt:
+      "After building a tamper-proof receipt system, I realized vendors had no visibility into when their receipts were being checked. So I built a real-time verification tracking system that logs every meaningful check and turns it into actionable data.",
+    content: `
+## How I Built the Verification Tracking System Into Paperless
+
+After building a fully secured system that verifies authentic receipts after they’re issued, I noticed something: vendors have no idea when their receipts are being checked.
+
+That’s a problem.
+
+So I built another system that tracks every verification in real time. When a receipt is checked, the vendor knows when, how often, and by whom it is being verified.
+
+Now it’s not just about proof, it’s about visibility.
+
+That’s where the verification tracking system comes in.
+
+## The Problem With Just Verifying
+
+Most receipt systems stop at "Is this receipt valid?" They return a yes or no and move on.
+
+But I didn’t want that, because every time someone verifies a receipt, something is happening. That action itself is data, and it matters to the vendor.
+
+- **Was this receipt verified once or fifty times?**
+- **Was it verified recently, suggesting an active resale attempt?**
+- **Was it verified from multiple different locations?**
+That tells you something.
+
+A receipt verified 8 times means something. A receipt verified for the first time after 3 years means something else.
+Most systems ignore that. I didn’t want to throw that away.
+
+## How I Tracked it
+
+Every time someone clicks on the verify button on a receipt page, we log a verification event in the database:
+
+\`\`\`prisma
+model Verification {
+  id          String   @id @default(cuid())
+  receiptId   String
+  receipt     Receipt  @relation(fields: [receiptId], references: [id])
+  verifiedAt  DateTime @default(now())
+  ipAddress   String?
+  userAgent   String?
+  purpose     String?
+}
+\`\`\`
+
+Four fields: receipt reference, timestamp, IP address, and user agent. Simple. Intentional.
+
+## How I Made It Reliable
+
+This is where it got interesting.
+
+The naive approach I took was to log every API hit. But I quickly discovered that it was polluting our data with noise, so I had to revert to logging only meaningful verification events.
+
+### Next.js prefetching
+
+Next.js was prefetching routes in the background as I was moving around the app.
+
+So a vendor browsing their receipts list would trigger prefetch requests to the verify route, logging verifications that never actually happened.
+
+I had to detect and skip prefetch requests:
+
+\`\`\`ts
+const isPrefetch =
+  req.headers.get("purpose") === "prefetch" ||
+  req.headers.get("next-router-prefetch") === "1" ||
+  req.headers.get("x-middleware-prefetch") === "1" ||
+  req.headers.get("accept") === "text/x-component";
+
+if (isPrefetch) {
+  // return data but don't log
+}
+\`\`\`
+
+### React StrictMode double-firing
+
+In development, React StrictMode intentionally runs effects twice to catch bugs.
+
+This meant every verified page visit logged two verification events instead of one.
+
+I solved it with IP-based deduplication within a 60-second window:
+
+\`\`\`ts
+const recentVerification = await prisma.verification.findFirst({
+  where: {
+    receiptId: receipt.id,
+    ipAddress,
+    verifiedAt: {
+      gte: new Date(Date.now() - 60 * 1000),
+    },
+  },
+});
+
+if (!recentVerification) {
+  await prisma.verification.create({ ... });
+}
+\`\`\`
+
+If the same IP verifies the same receipt within the last minute, I don’t count it twice. One person, one verification.
+
+## Only Log Authentic Receipts
+
+I also moved logging to happen only after hash verification passes (I explained this system in my last blog).
+
+There’s no value in logging failed verification attempts — they’re noise.
+
+If a receipt is tampered with, I simply return an error without logging a verification event.
+
+\`\`\`ts
+const isAuthentic = verifyReceiptHash(hashPayload, receipt.hash);
+
+// Only log if authentic and not a prefetch
+if (isAuthentic && !isPrefetch) {
+  await prisma.verification.create({ ... });
+}
+\`\`\`
+
+## Surfacing the Data
+
+On the receipts list page, each receipt shows its verification count:
+
+\`\`\`ts
+_count: { select: { verifications: true } }
+\`\`\`
+
+A small badge appears on receipts that have been verified during resale:
+- **2× verified**
+- **8× verified**
+
+This is visible to the vendor at a glance.
+
+The dashboard stats card also shows the total number of resale verifications across all receipts, a number that grows as buyers use the system to check their purchases.
+
+## Conclusion
+
+Verification tracking taught me that a system isn’t just about the happy path.
+
+It’s about all the edge cases, the prefetches, the double renders, the duplicate events, that make the difference between clean data and garbage data.
+
+It also showed me that logging the right events at the right moment is a product decision as much as a technical one.
+
+We’re not logging every hit.
+
+We’re logging every meaningful verification.
+
+That’s the difference.
+
+And that difference is what makes the data trustworthy enough to build features on top of.
+`,
+  },
+  {
     slug: "tamper-proof-receipts-sha256",
     title: "How I Built a Tamper-Proof Receipt System Using SHA-256",
     // thumbnail: postThumbnail,
