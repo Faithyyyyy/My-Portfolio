@@ -149,11 +149,7 @@ It’s about all the edge cases, the prefetches, the double renders, the duplica
 
 It also showed me that logging the right events at the right moment is a product decision as much as a technical one.
 
-We’re not logging every hit.
-
-We’re logging every meaningful verification.
-
-That’s the difference.
+I was not logging every hit. I was only logging every meaningful verification. That’s the difference.
 
 And that difference is what makes the data trustworthy enough to build features on top of.
 `,
