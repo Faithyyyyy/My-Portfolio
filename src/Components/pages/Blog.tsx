@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import type { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { FiSearch, FiX } from "react-icons/fi";
 import keyboardImage from "../../assets/lazy_loading.webp";
@@ -12,7 +13,7 @@ type BlogPost = {
   content?: string;
   thumbnail?: string;
   image?: string;
-  imageFit?: "cover" | "contain";
+  imageFit?: string;
   imagePosition?: string;
   slug: string;
 };
@@ -30,6 +31,7 @@ function getReadTime(content = "") {
 
 function BlogCard({ post }: { post: BlogPost }) {
   const postImage = post.thumbnail || post.image || keyboardImage;
+  const objectFit = (post.imageFit || "cover") as CSSProperties["objectFit"];
 
   return (
     <article className="blog-index-card overflow-hidden rounded-[14px] border transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
@@ -43,7 +45,7 @@ function BlogCard({ post }: { post: BlogPost }) {
             alt=""
             className="h-[210px] w-full rounded-[10px] object-cover"
             style={{
-              objectFit: post.imageFit || "cover",
+              objectFit,
               objectPosition: post.imagePosition || "center",
               background: "#fbfaf7",
             }}
