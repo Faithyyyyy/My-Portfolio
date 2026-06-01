@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
@@ -25,7 +25,11 @@ import {
 } from "react-icons/si";
 
 const tools = [
-  { name: "Next.js", Icon: SiNextdotjs, color: "#ffffff" },
+  {
+    name: "Next.js",
+    Icon: SiNextdotjs,
+    color: "#4169E1",
+  },
   { name: "Nuxt.js", Icon: SiNuxtdotjs, color: "#00DC82" },
   { name: "OpenAI", Icon: SiOpenai, color: "#74AA9C" },
   { name: "NestJS", Icon: SiNestjs, color: "#E0234E" },
@@ -35,7 +39,7 @@ const tools = [
   { name: "Tailwind CSS", Icon: SiTailwindcss, color: "#06B6D4" },
   { name: "Node.js", Icon: SiNodedotjs, color: "#339933" },
   { name: "PostgreSQL", Icon: SiPostgresql, color: "#4169E1" },
-  { name: "Prisma", Icon: SiPrisma, color: "#ffffff" },
+  { name: "Prisma", Icon: SiPrisma, color: "#4169E1" },
   { name: "Supabase", Icon: SiSupabase, color: "#3ECF8E" },
   { name: "Framer Motion", Icon: SiFramer, color: "#FF0055" },
   { name: "Vite", Icon: SiVite, color: "#646CFF" },
@@ -101,19 +105,20 @@ export default function TechnicalArsenal() {
                 }}
                 onMouseEnter={() => setHovered(tool.name)}
                 onMouseLeave={() => setHovered(null)}
+                className="tech-tool"
                 style={{
+                  "--tool-color": tool.color,
+                  "--tool-light-color": tool.lightColor || tool.color,
+                  "--tool-border-color": `${tool.color}44`,
                   position: "relative",
                   width: "64px",
                   height: "64px",
                   borderRadius: "16px",
-                  background: isHovered ? "#1a1a1a" : "#111111",
-                  border: `1px solid ${isHovered ? tool.color + "44" : "rgba(255,255,255,0.06)"}`,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   cursor: "default",
                   transition: "all 0.2s ease",
-                  color: isHovered ? tool.color : "rgba(255,255,255,0.35)",
                   boxShadow: isHovered ? `0 0 24px ${tool.color}22` : "none",
                   transform: isHovered ? "translateY(-3px)" : "translateY(0)",
                 }}
@@ -123,23 +128,22 @@ export default function TechnicalArsenal() {
                 {/* Tooltip */}
                 {isHovered && (
                   <div
+                    className="tech-tooltip"
                     style={{
                       position: "absolute",
                       bottom: "calc(100% + 10px)",
                       left: "50%",
                       transform: "translateX(-50%)",
-                      background: "#1a1a1a",
-                      border: "1px solid rgba(255,255,255,0.1)",
                       borderRadius: "8px",
                       padding: "0.3rem 0.7rem",
                       whiteSpace: "nowrap",
                       fontFamily: "DM Sans, sans-serif",
                       fontSize: "0.72rem",
                       fontWeight: 500,
-                      color: tool.color,
+                      color: "var(--tool-color)",
                       pointerEvents: "none",
                       zIndex: 10,
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
+                      boxShadow: "var(--shadow-soft)",
                     }}
                   >
                     {tool.name}

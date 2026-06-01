@@ -2,6 +2,8 @@
 // Drop-in cover generator. Usage: <BlogCover post={post} />
 // No images needed — renders a unique SVG cover per post automatically.
 
+import React from "react";
+
 const TAG_CONFIG = {
   Engineering: {
     accent: "#fb923c",

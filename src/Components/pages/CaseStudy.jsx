@@ -513,3 +513,4 @@ export default function CaseStudy() {
     </div>
   );
 }
+import React from "react";

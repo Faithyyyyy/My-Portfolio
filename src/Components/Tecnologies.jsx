@@ -10,7 +10,7 @@ import { DiNodejs } from "react-icons/di";
 import { SiTypescript } from "react-icons/si";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 function Tech() {
   useEffect(() => {

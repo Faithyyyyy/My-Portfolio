@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router-dom";
@@ -119,6 +120,7 @@ function ProjectCard({ project, index, inView }) {
           }}
         >
           <span
+            className="case-study-overlay-text"
             style={{
               fontFamily: "DM Sans, sans-serif",
               fontSize: "0.8rem",

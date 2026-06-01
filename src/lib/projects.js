@@ -4,7 +4,7 @@ export const projects = [
     slug: "product-development",
     category: "PRODUCT DEVELOPMENT",
     title: "Paperless",
-    description: "For building cross-platform mobile apps for iOS and Android",
+    description: "Verifiable Digital Receipts for Gadget Vendors",
     image: paperless, // '/projects/mobile.png'
     liveUrl: "https://paperlesss.vercel.app/",
     githubUrl: "https://github.com/Faithyyyyy/paperless",
@@ -14,7 +14,7 @@ export const projects = [
 
     context: `The phone and gadget retail market in Nigeria, particularly hubs like Ikeja Computer Village, operates almost entirely on trust and paper. Most vendors issue handwritten receipts or none at all. During resale, there is no way for a potential buyer to verify a device's purchase history, price paid, or legitimacy of the original sale. Disputes are common, fraud is rampant, and vendors have no digital record of their transactions.`,
 
-    approach: `We built a Next.js web app targeting mobile-first vendors, no app download required, works on any smartphone browser. Each receipt is cryptographically hashed using SHA-256, generating a unique tamper-proof fingerprint tied to the exact transaction data. Vendors issue receipts in under a minute, and buyers receive a public verification link they can share during resale. Anyone; buyer, reseller, or arbitrator, can scan the QR code or visit the link to confirm the receipt is authentic and unmodified, without needing an account.`,
+    approach: `I built a Next.js web app targeting mobile-first vendors, no app download required, works on any smartphone browser. Each receipt is cryptographically hashed using SHA-256, generating a unique tamper-proof fingerprint tied to the exact transaction data. Vendors issue receipts in under a minute, and buyers receive a public verification link they can share during resale. Anyone; buyer, reseller, or arbitrator, can scan the QR code or visit the link to confirm the receipt is authentic and unmodified, without needing an account.`,
 
     // screens: [
     //   {

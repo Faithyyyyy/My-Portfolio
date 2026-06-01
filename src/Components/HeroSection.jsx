@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import "../fonts/Recoleta-Bold.woff2";
 import VerticalNav from "./VerticalNav";
@@ -42,8 +43,35 @@ function Hero({ navIcon }) {
     "mailto:faithfortune6@gmail.com?subject=SendMail&body=Description";
   return (
     <>
+      <style>{`
+        .blob {
+          position: absolute;
+          border-radius: 50%;
+          pointer-events: none;
+        }
+        .blob-right {
+          top: 10%;
+          right: -5%;
+          width: min(500px, 80vw);
+          height: min(500px, 80vw);
+          background: radial-gradient(circle, rgba(196,181,253,0.35) 0%, transparent 70%);
+          filter: blur(40px);
+        }
+        .blob-left {
+          bottom: 5%;
+          left: -10%;
+          width: min(600px, 90vw);
+          height: min(600px, 90vw);
+          background: radial-gradient(circle, rgba(147,197,253,0.3) 0%, transparent 70%);
+          filter: blur(50px);
+        }
+        @media (max-width: 768px) {
+          .blob-right { right: -20%; top: 5%; opacity: 0.6; }
+          .blob-left  { left: -20%; bottom: 2%; opacity: 0.6; }
+        }
+      `}</style>
       <main
-        className={`px-5 py-32 md:pt-32 max-w-6xl mx-auto xl:px-0  ${
+        className={`relative px-5 py-32 md:pt-32 max-w-6xl mx-auto xl:px-0  ${
           // className={`px-5 py-32 md:pt-56  xl:pt-72 max-w-6xl mx-auto xl:px-0  ${
           navIcon ? "overflow-hidden " : ""
         } ${navIcon ? "h-[800px]" : ""}`}
@@ -135,7 +163,7 @@ function Hero({ navIcon }) {
             letterSpacing: "-0.01em",
           }}
         >
-          Frontend Systems Architect
+          Frontend Systems Architect exploring product systems
         </motion.h2>
 
         {/* Description with highlighted keywords */}
@@ -151,19 +179,7 @@ function Hero({ navIcon }) {
             maxWidth: "520px",
           }}
         >
-          Specializing in high-performance digital experiences, secure{" "}
-          <strong style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>
-            payment ecosystems
-          </strong>
-          , and scalable{" "}
-          <strong style={{ color: "var(--accent-lavender)", fontWeight: 600 }}>
-            AI Agents
-          </strong>{" "}
-          &amp;{" "}
-          <strong style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>
-            SaaS operations
-          </strong>
-          .
+          Building interfaces. Explaining products, systems, and workflows.
         </motion.p>
         <motion.div
           variants={container}
@@ -257,31 +273,3 @@ function Hero({ navIcon }) {
 }
 
 export default Hero;
-
-<style>{`
-  .blob {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  .blob-right {
-    top: 10%;
-    right: -5%;
-    width: min(500px, 80vw);
-    height: min(500px, 80vw);
-    background: radial-gradient(circle, rgba(196,181,253,0.35) 0%, transparent 70%);
-    filter: blur(40px);
-  }
-  .blob-left {
-    bottom: 5%;
-    left: -10%;
-    width: min(600px, 90vw);
-    height: min(600px, 90vw);
-    background: radial-gradient(circle, rgba(147,197,253,0.3) 0%, transparent 70%);
-    filter: blur(50px);
-  }
-  @media (max-width: 768px) {
-    .blob-right { right: -20%; top: 5%; opacity: 0.6; }
-    .blob-left  { left: -20%; bottom: 2%; opacity: 0.6; }
-  }
-`}</style>;

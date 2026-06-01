@@ -1,9 +1,10 @@
 // src/Components/pages/BlogPost.jsx
 
+import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { blogPosts } from "../../data/blogData";
-import BlogCover from "../BlogCover";
+import fallbackPostImage from "../../assets/lazy_loading.webp";
 
 const TAG_COLORS = {
   AI: {
@@ -56,8 +57,8 @@ function renderMarkdown(content) {
         <pre
           key={key++}
           style={{
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.08)",
+            background: "#f8fafc",
+            border: "1px solid #e2e8f0",
             borderRadius: "10px",
             padding: "1.25rem 1.5rem",
             overflowX: "auto",
@@ -67,7 +68,7 @@ function renderMarkdown(content) {
           <code
             style={{
               fontSize: "0.85rem",
-              color: "rgba(255,255,255,0.75)",
+              color: "#334155",
               fontFamily: "'Fira Code', 'Cascadia Code', monospace",
               lineHeight: 1.7,
             }}
@@ -88,7 +89,7 @@ function renderMarkdown(content) {
           style={{
             fontSize: "clamp(1.25rem, 3vw, 1.6rem)",
             fontWeight: 700,
-            color: "#ffffff",
+            color: "#111827",
             margin: "2.5rem 0 1rem",
             letterSpacing: "-0.02em",
             lineHeight: 1.25,
@@ -134,7 +135,7 @@ function renderMarkdown(content) {
         key={key++}
         style={{
           fontSize: "1rem",
-          color: "rgba(255,255,255,0.6)",
+          color: "#475569",
           lineHeight: 1.85,
           margin: "0 0 1.1rem",
         }}
@@ -154,10 +155,7 @@ function formatInline(text, baseKey) {
   return parts.map((part, i) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
-        <strong
-          key={i}
-          style={{ color: "rgba(255,255,255,0.9)", fontWeight: 600 }}
-        >
+        <strong key={i} style={{ color: "#111827", fontWeight: 600 }}>
           {part.slice(2, -2)}
         </strong>
       );
@@ -184,6 +182,17 @@ function formatInline(text, baseKey) {
   });
 }
 
+function getReadTime(content = "") {
+  const words = content
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/[#*_`>-]/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+
+  return `${Math.max(1, Math.ceil(words / 220))} min read`;
+}
+
 export default function BlogPost() {
   const { slug } = useParams();
   const post = blogPosts.find((p) => p.slug === slug);
@@ -193,16 +202,20 @@ export default function BlogPost() {
   const tag = TAG_COLORS[post.tag] || defaultTag;
   const currentIndex = blogPosts.findIndex((p) => p.slug === slug);
   const nextPost = blogPosts[currentIndex + 1] || null;
+  const postImage = post.thumbnail || post.image || fallbackPostImage;
+  const imageFit = post.imageFit || "cover";
+  const imagePosition = post.imagePosition || "center";
+  const readTime = getReadTime(post.content);
 
   return (
     <div
-      className="font-monsterat text-white bg-black"
-      style={{ minHeight: "100vh" }}
+      className="blog-article font-monsterat"
+      style={{ minHeight: "100vh", background: "#f7f8fa", color: "#151922" }}
     >
       {/* Nav bar */}
       <div
         style={{
-          maxWidth: "48rem",
+          maxWidth: "72rem",
           margin: "0 auto",
           padding: "2rem 1.25rem 0",
         }}
@@ -214,16 +227,15 @@ export default function BlogPost() {
             alignItems: "center",
             gap: "0.5rem",
             fontSize: "0.82rem",
-            color: "rgba(255,255,255,0.4)",
+            color: "#64748b",
             textDecoration: "none",
             transition: "color 0.2s",
+            fontWeight: 500,
           }}
           onMouseEnter={(e) =>
             (e.currentTarget.style.color = "var(--accent-lavender)")
           }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.color = "rgba(255,255,255,0.4)")
-          }
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#64748b")}
         >
           <svg
             width="14"
@@ -241,230 +253,258 @@ export default function BlogPost() {
         </Link>
       </div>
 
-      {/* Post header */}
-      <header
+      <motion.main
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          maxWidth: "48rem",
-          margin: "0 auto",
-          padding: "4rem 1.25rem 3rem",
+          maxWidth: "72rem",
+          margin: "2.5rem auto 6rem",
+          padding: "0 1.25rem",
         }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.75rem",
-            marginBottom: "1.5rem",
-          }}
-        >
-          <span
-            style={{
-              fontSize: "0.68rem",
-              fontWeight: 600,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              padding: "0.25rem 0.75rem",
-              borderRadius: "999px",
-              background: tag.bg,
-              border: `1px solid ${tag.border}`,
-              color: tag.color,
-            }}
-          >
-            {post.tag}
-          </span>
-          <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.3)" }}>
-            {post.date}
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          style={{
-            fontSize: "clamp(1.75rem, 5vw, 2.75rem)",
-            fontWeight: 700,
-            color: "#ffffff",
-            margin: "0 0 1.25rem",
-            lineHeight: 1.15,
-            letterSpacing: "-0.03em",
-          }}
-        >
-          {post.title}
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.65, delay: 0.18 }}
-          style={{
-            fontSize: "1.05rem",
-            color: "rgba(255,255,255,0.45)",
-            lineHeight: 1.7,
-            margin: 0,
-          }}
-        >
-          {post.excerpt}
-        </motion.p>
-      </header>
-
-      {/* Cover image */}
-      <div
-        style={{
-          maxWidth: "48rem",
-          margin: "0 auto",
-          padding: "0 1.25rem 2rem",
-        }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {/* <BlogCover post={post} style={{ borderRadius: "14px" }} /> */}
-          {/* <img
-            src={post.thumbnail}
-            alt=""
-            style={{ borderRadius: "14px" }}
-            className="h-[200px]"
-          /> */}
-        </motion.div>
-      </div>
-
-      {/* Divider */}
-      <div
-        style={{ maxWidth: "48rem", margin: "0 auto", padding: "0 1.25rem" }}
       >
         <div
           style={{
-            height: "1px",
-            background: "rgba(255,255,255,0.07)",
-            marginBottom: "3rem",
+            overflow: "hidden",
+            border: "1px solid #cfd6df",
+            borderRadius: "18px",
+            background: "#ffffff",
           }}
-        />
-      </div>
-
-      {/* Post body */}
-      <motion.article
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-        style={{
-          maxWidth: "48rem",
-          margin: "0 auto",
-          padding: "0 1.25rem 6rem",
-        }}
-      >
-        {renderMarkdown(post.content)}
-
-        {/* Next post */}
-        {nextPost && (
-          <div
+        >
+          {/* Post header */}
+          <header
             style={{
-              marginTop: "5rem",
-              paddingTop: "3rem",
-              borderTop: "1px solid rgba(255,255,255,0.07)",
+              maxWidth: "48rem",
+              margin: "0 auto",
+              padding: "4.5rem 1.5rem 3rem",
+              textAlign: "center",
             }}
           >
-            <p
+            <div
               style={{
-                fontSize: "0.72rem",
-                fontWeight: 600,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.25)",
-                marginBottom: "1rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.75rem",
+                marginBottom: "1.5rem",
+                flexWrap: "wrap",
               }}
             >
-              Next post
-            </p>
-            <Link
-              to={`/blog/${nextPost.slug}`}
-              style={{ textDecoration: "none" }}
+              <span
+                style={{
+                  fontSize: "0.68rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  padding: "0.25rem 0.75rem",
+                  borderRadius: "999px",
+                  background: tag.bg,
+                  border: `1px solid ${tag.border}`,
+                  color: tag.color,
+                }}
+              >
+                {post.tag}
+              </span>
+              <span
+                style={{
+                  fontSize: "0.78rem",
+                  color: "#64748b",
+                  fontWeight: 500,
+                }}
+              >
+                {post.date}
+              </span>
+              <span className="blog-index-card__separator" aria-hidden="true">
+                ·
+              </span>
+              <span
+                style={{
+                  fontSize: "0.78rem",
+                  color: "#64748b",
+                  fontWeight: 500,
+                }}
+              >
+                {readTime}
+              </span>
+            </div>
+
+            <h1
+              style={{
+                fontSize: "clamp(2.5rem, 5.4vw, 2.7rem)",
+                fontWeight: 900,
+                color: "#111827",
+                margin: "0 0 1.25rem",
+                lineHeight: 1.12,
+                letterSpacing: "-0.045em",
+              }}
             >
+              {post.title}
+            </h1>
+
+            <p
+              style={{
+                fontSize: "1.05rem",
+                color: "#475569",
+                lineHeight: 1.7,
+                margin: "0 auto",
+                maxWidth: "44rem",
+              }}
+            >
+              {post.excerpt}
+            </p>
+          </header>
+
+          {/* Article image */}
+          <img
+            src={postImage}
+            alt=""
+            style={{
+              width: "100%",
+              height: "clamp(280px, 46vw, 620px)",
+              objectFit: imageFit,
+              objectPosition: imagePosition,
+              background: "#fbfaf7",
+              display: "block",
+            }}
+          />
+
+          {/* Divider */}
+          <div
+            style={{
+              maxWidth: "48rem",
+              margin: "0 auto",
+              padding: "0 1.25rem",
+            }}
+          >
+            <div
+              style={{
+                height: "1px",
+                background: "#e2e8f0",
+                margin: "3rem 0",
+              }}
+            />
+          </div>
+
+          {/* Post body */}
+          <article
+            style={{
+              maxWidth: "48rem",
+              margin: "0 auto",
+              padding: "0 1.25rem 6rem",
+              fontWeight: 500,
+            }}
+          >
+            {renderMarkdown(post.content)}
+
+            {/* Next post */}
+            {nextPost && (
               <div
                 style={{
-                  padding: "1.5rem",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  borderRadius: "12px",
-                  transition: "all 0.25s ease",
-                  display: "flex",
-                  justifyContent: "space-between",
+                  marginTop: "5rem",
+                  paddingTop: "3rem",
+                  borderTop: "1px solid #e2e8f0",
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "0.72rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "#64748b",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  Next post
+                </p>
+                <Link
+                  to={`/blog/${nextPost.slug}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <div
+                    style={{
+                      padding: "1.5rem",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: "12px",
+                      transition: "all 0.25s ease",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      gap: "1rem",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor =
+                        "rgba(139,92,246,0.3)";
+                      e.currentTarget.style.background =
+                        "rgba(139,92,246,0.06)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "#e2e8f0";
+                      e.currentTarget.style.background = "transparent";
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize: "1rem",
+                        fontWeight: 600,
+                        color: "#111827",
+                        letterSpacing: "-0.01em",
+                      }}
+                    >
+                      {nextPost.title}
+                    </span>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--accent-lavender)"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ flexShrink: 0 }}
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </Link>
+              </div>
+            )}
+
+            {/* Back to blog */}
+            <div style={{ marginTop: "3rem", textAlign: "center" }}>
+              <Link
+                to="/blog"
+                style={{
+                  display: "inline-flex",
                   alignItems: "center",
-                  gap: "1rem",
+                  gap: "0.5rem",
+                  fontSize: "0.85rem",
+                  fontWeight: 500,
+                  color: "#64748b",
+                  textDecoration: "none",
+                  border: "1px solid #cbd5e1",
+                  padding: "0.65rem 1.4rem",
+                  borderRadius: "999px",
+                  transition: "all 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "#111827";
                   e.currentTarget.style.borderColor = "rgba(139,92,246,0.3)";
-                  e.currentTarget.style.background = "rgba(139,92,246,0.06)";
+                  e.currentTarget.style.background = "rgba(139,92,246,0.08)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
+                  e.currentTarget.style.color = "#64748b";
+                  e.currentTarget.style.borderColor = "#cbd5e1";
                   e.currentTarget.style.background = "transparent";
                 }}
               >
-                <span
-                  style={{
-                    fontSize: "1rem",
-                    fontWeight: 600,
-                    color: "#ffffff",
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {nextPost.title}
-                </span>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="var(--accent-lavender)"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ flexShrink: 0 }}
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </div>
-            </Link>
-          </div>
-        )}
-
-        {/* Back to blog */}
-        <div style={{ marginTop: "3rem", textAlign: "center" }}>
-          <Link
-            to="/blog"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              fontSize: "0.85rem",
-              fontWeight: 500,
-              color: "rgba(255,255,255,0.4)",
-              textDecoration: "none",
-              border: "1px solid rgba(255,255,255,0.1)",
-              padding: "0.65rem 1.4rem",
-              borderRadius: "999px",
-              transition: "all 0.25s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = "#fff";
-              e.currentTarget.style.borderColor = "rgba(139,92,246,0.3)";
-              e.currentTarget.style.background = "rgba(139,92,246,0.08)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = "rgba(255,255,255,0.4)";
-              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-              e.currentTarget.style.background = "transparent";
-            }}
-          >
-            ← Back to all posts
-          </Link>
+                ← Back to all posts
+              </Link>
+            </div>
+          </article>
         </div>
-      </motion.article>
+      </motion.main>
     </div>
   );
 }

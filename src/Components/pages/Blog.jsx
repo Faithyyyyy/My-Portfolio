@@ -1,5 +1,6 @@
 // src/Components/pages/Blog.jsx
 
+import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { blogPosts } from "../../data/blogData";

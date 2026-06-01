@@ -2,8 +2,262 @@
 // Add, edit, or remove posts here. The rest of the blog updates automatically.
 import postThumbnail from "../assets/post 1.png";
 import postThumbnail3 from "../assets/lazy_loading.webp";
+import linearDocsReview from "../assets/thumbnail/linear_image.png";
+import stripeImage from "../assets/thumbnail/stripe_image.png";
 
 export const blogPosts = [
+  {
+    slug: "how-stripe-works-digital-money-movement",
+    title: "How Stripe Works: The Infrastructure Behind Digital Money Movement",
+    date: "June 1, 2026",
+    tag: "Engineering",
+    thumbnail: stripeImage,
+    imageFit: "contain",
+    imagePosition: "center",
+    excerpt:
+      "A beginner-friendly breakdown of how Stripe combines payment gateways, processing, merchant accounts, fraud prevention, and financial automation into one platform.",
+    content: `
+Stripe is a financial powerhouse that has mastered the art of digital money movement. They help businesses build money movement into software. They created an infrastructure that facilitates effortless payments from customers to businesses and back again.
+
+Today, a lot of global giants like Google, Shopify and Ramp rely on Stripe’s robust infrastructure to manage their online checkout experiences and complex recurring billing systems. By scaling alongside these massive enterprises and strategically acquiring promising regional startups, Stripe has solidified its position as one of the world's most trusted and dominant fintech powerhouses.
+
+## The Problem It Solves
+
+To understand Stripe’s true value, you have to look at the fragmented system it replaced.
+
+Before Stripe, digital transactions relied on three separate entities:
+
+- A gateway to securely capture card details
+- A processor to act as the messaging courier that clears the transaction with the banks
+- A dedicated merchant bank account to hold the cash securely
+
+The entire process was just summarized, but in reality, setting up these three separate legal and technical systems was a nightmare for business owners.
+
+Stripe completely flattened this learning curve by compressing all three roles into a single, developer-friendly software platform.
+
+## How It Works
+
+Instead of a platform service owner or a website owner having to apply, pay, and write code for three different companies, Stripe acts as the gateway, the processor, and the merchant account simultaneously.
+
+## It Acts as the Gateway
+
+When a customer enters their card details on a website, that information needs to be handled securely.
+
+This is where the payment gateway layer comes in.
+
+Stripe gives businesses pre-built, secure checkout forms like Stripe Checkout.
+
+When a customer enters their card details, Stripe instantly encrypts the data. This eliminates the need for businesses to build and maintain their own secure payment infrastructure. Stripe provides a ready-made solution that handles much of the complexity.
+
+From the customer's perspective, it looks like a simple checkout form. Behind the scenes, security checks and encryption are already at work.
+
+## It Acts as the Processor
+
+Collecting card details is only the first step.
+
+The moment the customer clicks "Pay," Stripe’s internal system acts as the messenger. It instantly communicates with Visa, Mastercard, or the customer's bank to verify if they have enough money and approve or deny the sale in milliseconds.
+
+This is the payment processor's job. Stripe acts as the intermediary between the business, the customer's bank, and card networks. It sends payment requests, receives responses, and communicates the result back to the business, all within seconds.
+
+In simple terms, Stripe is the messenger that helps move payment information between all the parties involved.
+
+## It Acts as the Merchant Bank Account
+
+This is one of Stripe's biggest innovations.
+
+After a payment is approved, the money still needs to be managed and eventually transferred to the business. Traditionally, businesses often needed a separate merchant account for this purpose.
+
+Instead of requiring every small business to set up their own individual, complex merchant bank account from scratch, Stripe simplifies this process through what is commonly known as an aggregator model.
+
+Stripe handles tasks such as fraud monitoring, compliance requirements, and payment settlement before sending funds to the business's bank account according to its payout schedule.
+
+## Who Uses Stripe?
+
+Who exactly does Stripe solve these payment problems for?
+
+The short answer: almost every type of internet business.
+
+Stripe serves companies at every stage of growth, from tiny startups launching their first product to some of the world's largest enterprises. If a business sells products online, charges recurring subscriptions, operates a marketplace, or pays people digitally, there's a good chance Stripe is involved somewhere behind the scenes.
+
+What makes Stripe powerful is not just its ability to move money. It's the fact that it provides an entire financial operating system for internet businesses.
+
+## Key Features
+
+Stripe’s massive adoption is driven by a collection of products that handle the entire lifecycle of a digital transaction.
+
+Here are the key features Stripe offers, broken down by what they do.
+
+## Core Payment Acceptance
+
+At its core, Stripe helps businesses collect money from customers around the world. These features let businesses accept money from customers anywhere in the world.
+
+### Global Card Processing
+
+Businesses can accept credit and debit card payments from customers across multiple countries and currencies through a single integration.
+
+### Stripe Terminal
+
+Not every business operates exclusively online.
+
+Stripe Terminal provides physical card readers for retail stores, allowing in-person payments to sync automatically with online transaction data. This creates a unified view of customer payments across both digital and physical channels.
+
+## Specialized Business Models
+
+Different businesses make money in different ways.
+
+A software company may charge monthly subscriptions, while a marketplace accepts one-time payments from a customer, takes a platform fee, and splits the remaining funds among multiple parties involved in the sale or service, for example Uber.
+
+Stripe provides specialized tools for these scenarios.
+
+### Stripe Billing
+
+Managing subscriptions sounds simple until you have to deal with free trials, failed payments, usage-based pricing, upgrades, downgrades, and renewals.
+
+Stripe Billing automates these processes, allowing SaaS businesses to focus on their product instead of building a custom billing system from scratch.
+
+### Stripe Connect
+
+Marketplaces face an even more complicated challenge.
+
+When a customer pays for a ride, delivery, or freelance service, the platform often needs to collect the payment, deduct its fee, and distribute the remaining funds to independent workers.
+
+Stripe Connect handles this entire flow automatically.
+
+This is why platforms like ride-sharing, delivery, and creator marketplaces can scale without building complex payment infrastructure themselves.
+
+## Fraud Prevention and Security
+
+Moving money online attracts fraud.
+
+Because Stripe sits at the center of billions of payment interactions, it can identify suspicious patterns and help businesses block fraudulent activity before it causes damage.
+
+### Stripe Radar
+
+Stripe Radar uses machine learning and AI to analyze millions of global transactions in real time, instantly blocking stolen credit cards and fraudulent checkout attempts.
+
+### Built-In Compliance
+
+Financial regulations are notoriously complex.
+
+Stripe handles heavy regulatory requirements, like PCI compliance and European Strong Customer Authentication, automatically. This means businesses do not have to worry as much about legal financial liabilities, thereby reducing the operational burden of staying compliant.
+
+## Operations and Financial Automation
+
+Collecting money is only part of the story.
+
+Businesses also need to calculate taxes, generate invoices, and understand their financial data.
+
+These tools help companies manage the money after it is collected.
+
+### Stripe Tax
+
+Stripe Tax automatically calculates, collects, and reports sales tax, VAT, and GST based on the buyer's precise physical location.
+
+### Stripe Invoicing
+
+Stripe Invoicing creates and sends professional, interactive PDF invoices that corporate clients can pay instantly via wire or card.
+
+### Stripe Sigma
+
+Stripe Sigma is an integrated SQL data tool that lets accounting teams instantly query their transaction history to build financial reports.
+
+Together, these tools reduce the amount of manual financial work required to run an online business.
+
+## Business Infrastructure
+
+Stripe's ambitions extend beyond payments.
+
+### Stripe Atlas
+
+For new entrepreneurs, Stripe Atlas allows anyone in the world to form a legal US company, such as a Delaware LLC or C-Corp, set up a US bank account, and start accepting global payments in just a few days entirely online.
+
+## Why It Matters
+
+To understand why Stripe became one of the most important infrastructure companies on the internet, you have to look beyond payment processing. Its impact can be understood through four major shifts.
+
+## It Democratized Global Commerce
+
+Before Stripe, a developer in a developing nation or a small town could not easily sell software service to someone in New York. The banking regulations, merchant account approvals, and setup costs were an impossible barrier.
+
+For many small businesses and independent developers, these barriers made global commerce difficult. Stripe simplified much of that complexity. Today, a founder can launch a product online and begin selling to customers across multiple countries without spending months building payment infrastructure first.
+
+In many ways, Stripe transformed payments into a utility that developers can plug into on demand.
+
+## The Shift From Infrastructure to Innovation
+
+Every hour spent building billing systems, payment gateways, and financial workflows is an hour not spent improving the product itself.
+
+By abstracting away the payment layer, Stripe allows companies to focus their engineering resources on solving customer problems. Instead of rebuilding payment infrastructure, teams can spend more time creating products people actually want to use.
+
+## Solving the Nightmare of Multi-Party Money
+
+Modern internet businesses rarely move money directly from one person to another.
+
+Marketplaces must collect payments, deduct platform fees, calculate taxes, and distribute earnings across thousands or even millions of participants.
+
+Trying to manage this manually would require enormous operational overhead.
+
+Stripe Connect turned these complicated financial workflows into programmable APIs, making it possible for modern marketplace businesses to operate at scale.
+
+## Massive Fraud Protection at Scale
+
+One of Stripe's biggest advantages comes from scale.
+
+Because Stripe processes nearly $2 trillion in volume globally, its machine-learning model, Radar, sees fraud patterns before individual businesses do.
+
+If a stolen credit card is used illegally on a website in Europe, Stripe instantly blocks that same card when someone tries to use it on your small app in the US.
+
+Individual businesses cannot build that level of collective security on their own.
+
+## Conclusion
+
+The traditional approach to accepting payments online used to be a technical and bureaucratic roadblock that killed great ideas before they could launch.
+
+By combining the gateway, processor, and merchant account into a single, elegant piece of software, Stripe completely removed this barrier and packaged much of that complexity behind a single platform and developer-friendly API.
+
+As a business owner or developer, you shouldn't have to become a banking expert just to make a sale. Outsourcing your transaction infrastructure to Stripe means you stop spending your time fixing checkout bugs or fighting fraud, and start spending your time building things people actually want to buy.
+`,
+  },
+  {
+    slug: "linear-onboarding-docs-product-adoption",
+    title: "What Linear’s Onboarding Docs Get Right About Product Adoption",
+    date: "May 21, 2026",
+    tag: "Writing",
+    thumbnail: linearDocsReview,
+    imageFit: "contain",
+    imagePosition: "center",
+    excerpt:
+      "What product teams can learn from onboarding documentation that explains the product, reduces confusion, and guides users toward action.",
+    content: `
+I reviewed Linear’s onboarding documentation from the perspective of a casual user earlier this week, and a few things stood out to me. The documentation does a good job of not only explaining the product, but also guiding users toward adoption.
+
+## What Worked Well
+
+The user documentation starts with a brief overview of what the product solves. It then moves into a high-level summary and a live demo of the product experience.
+
+This works well because it helps new users understand the product before asking them to take action.
+
+Another strong point is the way each heading functions like a clear action path. Each section makes it easy for users to scan the page, understand what they need, and move directly to the next action. This reduces friction and improves adoption.
+
+I also like how the onboarding flow is broken down for different user roles interacting with Linear. This matters because new users do not all approach a product from the same perspective. A founder, product manager, engineer, or operations person may each need different guidance.
+
+The concept page is also useful because it explains Linear’s major features, how they connect, and how users can think about them in a structured way. This is important because new terminology can easily confuse users when they are learning a new product.
+
+## What Product Teams Can Learn
+
+Overall, the documentation is well structured. It guides users from product understanding to practical action in a smooth order, where each section builds naturally on the previous one.
+
+This is exactly what good documentation should do. It should not only explain what a product does, but also show users the problem the product solves, how the solution works, and how they can adopt it in their own workflow.
+
+The strongest part is the way the documentation reduces confusion. It introduces the product clearly, explains key concepts, and then moves users toward action step by step. This makes onboarding easier, especially for new users who may be learning both the product and its terminology for the first time.
+
+## My Biggest Takeaway
+
+Good documentation does not just inform users about a product.
+
+It guides them from confusion to clarity, and then from clarity to action.
+`,
+  },
   {
     slug: "verification-tracking-system-paperless",
     title: "How I Built the Verification Tracking System Into Paperless",

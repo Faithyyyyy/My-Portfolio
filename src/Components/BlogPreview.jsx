@@ -1,6 +1,7 @@
 // src/Components/BlogPreview.jsx
 // Drop this into Home in App.jsx between <TechnicalArsenal /> and <AboutMe />
 
+import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { blogPosts } from "../data/blogData";
@@ -35,8 +36,20 @@ const defaultTag = {
   color: "var(--accent-lavender)",
 };
 
+function getReadTime(content = "") {
+  const words = content
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/[#*_`>-]/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+
+  return `${Math.max(1, Math.ceil(words / 220))} min read`;
+}
+
 function BlogCard({ post, index }) {
   const tag = TAG_COLORS[post.tag] || defaultTag;
+  const readTime = getReadTime(post.content);
 
   return (
     <motion.div
@@ -125,6 +138,24 @@ function BlogCard({ post, index }) {
                 }}
               >
                 {post.date}
+              </span>
+              <span
+                style={{
+                  fontSize: "0.75rem",
+                  color: "rgba(255,255,255,0.3)",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                ·
+              </span>
+              <span
+                style={{
+                  fontSize: "0.75rem",
+                  color: "rgba(255,255,255,0.3)",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                {readTime}
               </span>
             </div>
 
@@ -224,7 +255,7 @@ export default function BlogPreview() {
                 marginBottom: "0.75rem",
               }}
             >
-              From the blog
+              From my blog
             </p>
             <h2
               style={{
@@ -249,7 +280,7 @@ export default function BlogPreview() {
               gap: "0.5rem",
               fontSize: "0.85rem",
               fontWeight: 500,
-              color: "rgba(255,255,255,0.5)",
+              color: "rgba(255,255,255,0.9)",
               textDecoration: "none",
               border: "1px solid rgba(255,255,255,0.1)",
               padding: "0.6rem 1.25rem",
@@ -257,17 +288,17 @@ export default function BlogPreview() {
               transition: "all 0.25s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = "#fff";
-              e.currentTarget.style.borderColor = "rgba(139,92,246,0.4)";
-              e.currentTarget.style.background = "rgba(139,92,246,0.08)";
-            }}
-            onMouseLeave={(e) => {
               e.currentTarget.style.color = "rgba(255,255,255,0.5)";
               e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
               e.currentTarget.style.background = "transparent";
             }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "#fff";
+              e.currentTarget.style.borderColor = "rgba(139,92,246,0.4)";
+              e.currentTarget.style.background = "rgba(139,92,246,0.08)";
+            }}
           >
-            All posts
+            All Blog posts
             <svg
               width="13"
               height="13"
