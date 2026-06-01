@@ -37,14 +37,15 @@ import Projects from "./Components/Projects";
 import AboutMe from "./Components/AboutMe";
 import Tech from "./Components/Tecnologies";
 import Footer from "./Components/Footer";
-import CaseStudy from "./Components/pages/CaseStudy";
-import Blog from "./Components/pages/Blog.tsx";
-import BlogPost from "./Components/pages/BlogPost";
 import BlogPreview from "./Components/BlogPreview";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import TechnicalArsenal from "./Components/TechnicalArsenal";
 import ThemeToggle from "./Components/ThemeToggle";
+
+const CaseStudy = lazy(() => import("./Components/pages/CaseStudy"));
+const Blog = lazy(() => import("./Components/pages/Blog.tsx"));
+const BlogPost = lazy(() => import("./Components/pages/BlogPost"));
 
 function Home({ navIcon, handleNav, theme }) {
   return (
@@ -100,17 +101,19 @@ function App() {
       {!isBlogRoute && (
         <ThemeToggle theme={theme} onToggle={handleThemeToggle} />
       )}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home navIcon={navIcon} handleNav={handleNav} theme={theme} />
-          }
-        />
-        <Route path="/projects/:slug" element={<CaseStudy />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-      </Routes>
+      <Suspense fallback={<div className="route-loading">Loading...</div>}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home navIcon={navIcon} handleNav={handleNav} theme={theme} />
+            }
+          />
+          <Route path="/projects/:slug" element={<CaseStudy />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+        </Routes>
+      </Suspense>
     </div>
   );
 }

@@ -238,6 +238,8 @@ export default function CaseStudy() {
           <img
             src={project.image}
             alt={project.title}
+            loading="eager"
+            decoding="async"
             style={{
               width: "100%",
               height: "100%",

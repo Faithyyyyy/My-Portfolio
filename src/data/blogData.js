@@ -1,16 +1,16 @@
 // src/data/blogData.js
 // Add, edit, or remove posts here. The rest of the blog updates automatically.
-import postThumbnail from "../assets/post 1.png";
+import postThumbnail from "../assets/post_1_optimized.jpg";
 import postThumbnail3 from "../assets/lazy_loading.webp";
-import linearDocsReview from "../assets/thumbnail/linear_image.png";
-import stripeImage from "../assets/thumbnail/stripe_image.png";
+import linearDocsReview from "../assets/thumbnail/linear_image_optimized.jpg";
+import stripeImage from "../assets/thumbnail/stripe_image_optimized.jpg";
 
 export const blogPosts = [
   {
     slug: "how-stripe-works-digital-money-movement",
     title: "How Stripe Works: The Infrastructure Behind Digital Money Movement",
     date: "June 1, 2026",
-    tag: "Engineering",
+    tag: "Product",
     thumbnail: stripeImage,
     imageFit: "contain",
     imagePosition: "center",
@@ -222,7 +222,7 @@ As a business owner or developer, you shouldn't have to become a banking expert 
     slug: "linear-onboarding-docs-product-adoption",
     title: "What Linear’s Onboarding Docs Get Right About Product Adoption",
     date: "May 21, 2026",
-    tag: "Writing",
+    tag: "PRODUCT",
     thumbnail: linearDocsReview,
     imageFit: "contain",
     imagePosition: "center",

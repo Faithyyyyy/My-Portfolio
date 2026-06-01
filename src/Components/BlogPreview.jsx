@@ -5,6 +5,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { blogPosts } from "../data/blogData";
+import fallbackThumbnail from "../assets/lazy_loading.webp";
 import BlogCover from "./BlogCover";
 
 const TAG_COLORS = {
@@ -47,12 +48,19 @@ function getReadTime(content = "") {
   return `${Math.max(1, Math.ceil(words / 220))} min read`;
 }
 
+function truncateText(text = "", maxLength = 120) {
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength).trim()}...`;
+}
+
 function BlogCard({ post, index }) {
   const tag = TAG_COLORS[post.tag] || defaultTag;
   const readTime = getReadTime(post.content);
+  const thumbnail = post.thumbnail || post.image || fallbackThumbnail;
 
   return (
     <motion.div
+      style={{ height: "100%" }}
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -62,7 +70,10 @@ function BlogCard({ post, index }) {
         ease: [0.22, 1, 0.36, 1],
       }}
     >
-      <Link to={`/blog/${post.slug}`} style={{ textDecoration: "none" }}>
+      <Link
+        to={`/blog/${post.slug}`}
+        style={{ textDecoration: "none", display: "block", height: "100%" }}
+      >
         <div
           style={{
             background: "rgba(255,255,255,0.03)",
@@ -71,7 +82,7 @@ function BlogCard({ post, index }) {
             padding: "0",
             cursor: "pointer",
             transition: "all 0.3s ease",
-            height: "100%",
+            height: "520px",
             display: "flex",
             flexDirection: "column",
             overflow: "hidden",
@@ -99,7 +110,22 @@ function BlogCard({ post, index }) {
               aspectRatio: "16/8",
             }}
           /> */}
-          <img src={post.thumbnail} alt="" style={{ borderRadius: "14px" }} />
+          <img
+            src={thumbnail}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            style={{
+              borderRadius: "14px",
+              width: "100%",
+              height: "180px",
+              objectFit: post.imageFit || "cover",
+              objectPosition: post.imagePosition || "center",
+              background: "#fbfaf7",
+              display: "block",
+              flexShrink: 0,
+            }}
+          />
 
           {/* Card body */}
           <div
@@ -109,6 +135,7 @@ function BlogCard({ post, index }) {
               flexDirection: "column",
               gap: "0.85rem",
               flexGrow: 1,
+              minHeight: 0,
             }}
           >
             {/* Tag + Date */}
@@ -168,6 +195,11 @@ function BlogCard({ post, index }) {
                 margin: 0,
                 lineHeight: 1.4,
                 letterSpacing: "-0.01em",
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                minHeight: "3.1rem",
               }}
             >
               {post.title}
@@ -181,9 +213,13 @@ function BlogCard({ post, index }) {
                 lineHeight: 1.7,
                 margin: 0,
                 flexGrow: 1,
+                display: "-webkit-box",
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
               }}
             >
-              {post.excerpt}
+              {truncateText(post.excerpt, 115)}
             </p>
 
             {/* Read more */}
@@ -195,7 +231,8 @@ function BlogCard({ post, index }) {
                 color: "var(--accent-lavender)",
                 fontSize: "0.82rem",
                 fontWeight: 500,
-                marginTop: "0.5rem",
+                marginTop: "auto",
+                flexShrink: 0,
               }}
             >
               Read post

@@ -144,6 +144,18 @@ body.blog-body #root {
   font-weight: 700;
 }
 
+.route-loading {
+  align-items: center;
+  background: var(--bg);
+  color: var(--text-muted);
+  display: flex;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  justify-content: center;
+  min-height: 100vh;
+}
+
 .theme-light .bg-black {
   background-color: var(--bg) !important;
 }

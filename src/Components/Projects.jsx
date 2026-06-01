@@ -42,6 +42,8 @@ function ProjectCard({ project, index, inView }) {
           <img
             src={project.image}
             alt={project.category}
+            loading="lazy"
+            decoding="async"
             style={{
               width: "100%",
               height: "100%",

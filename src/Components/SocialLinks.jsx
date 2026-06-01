@@ -3,20 +3,20 @@ import { FiGithub, FiMail, FiTwitter, FiLinkedin } from "react-icons/fi";
 
 const socials = [
   {
-    label: "GitHub",
-    Icon: FiGithub,
-    href: "https://github.com/Faithyyyyy",
-  },
-  {
     label: "LinkedIn",
     Icon: FiLinkedin,
     href: "https://www.linkedin.com/in/faitholoninayin/",
   },
   {
-    label: "Twitter",
-    Icon: FiTwitter,
-    href: "https://x.com/faitthtoby",
+    label: "GitHub",
+    Icon: FiGithub,
+    href: "https://github.com/Faithyyyyy",
   },
+  // {
+  //   label: "Twitter",
+  //   Icon: FiTwitter,
+  //   href: "https://x.com/faitthtoby",
+  // },
   {
     label: "Email",
     Icon: FiMail,

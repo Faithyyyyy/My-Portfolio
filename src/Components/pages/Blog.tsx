@@ -43,6 +43,8 @@ function BlogCard({ post }: { post: BlogPost }) {
           <img
             src={postImage}
             alt=""
+            loading="lazy"
+            decoding="async"
             className="h-[210px] w-full rounded-[10px] object-cover"
             style={{
               objectFit,

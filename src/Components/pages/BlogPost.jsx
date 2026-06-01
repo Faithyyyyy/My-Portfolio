@@ -109,10 +109,13 @@ function renderMarkdown(content) {
           key={key++}
           style={{
             fontSize: "1.05rem",
-            fontWeight: 600,
-            color: "var(--accent-lavender)",
-            margin: "2rem 0 0.6rem",
+            fontWeight: 800,
+            color: "#1f2937",
+            margin: "2rem 0 0.75rem",
             letterSpacing: "-0.01em",
+            borderLeft: "4px solid #cbd5e1",
+            paddingLeft: "0.85rem",
+            lineHeight: 1.35,
           }}
         >
           {line.replace("### ", "")}
@@ -358,6 +361,8 @@ export default function BlogPost() {
           <img
             src={postImage}
             alt=""
+            loading="eager"
+            decoding="async"
             style={{
               width: "100%",
               height: "clamp(280px, 46vw, 620px)",
